@@ -85,13 +85,13 @@ footer a:hover{color:#000}
       <div class="ico">🏢</div>
       <h3>Partnerships</h3>
       <p>Banks, lenders, or accounting firms interested in working with Nafini.</p>
-      <a class="action" href="https://wa.me/2348152029380?text=Partnership%20enquiry%20for%20Nafini">Start a conversation →</a>
+      <a class="action" href="mailto:hello@nafini.com?subject=Partnership%20enquiry">Email hello@nafini.com →</a>
     </div>
     <div class="card">
       <div class="ico">📰</div>
       <h3>Press</h3>
       <p>Media enquiries, interviews, and press kit requests.</p>
-      <a class="action" href="https://wa.me/2348152029380?text=Press%20enquiry%20for%20Nafini">Reach the team →</a>
+      <a class="action" href="mailto:hello@nafini.com?subject=Press%20enquiry">Email hello@nafini.com →</a>
     </div>
     <div class="card">
       <div class="ico">🛟</div>
@@ -101,39 +101,7 @@ footer a:hover{color:#000}
     </div>
   </div>
 
-  <section class="form-section">
-    <h2>Or send us an email.</h2>
-    <p>Everything else — questions, feedback, ideas — goes to our inbox. We reply within one business day.</p>
-    <form onsubmit="sendContact(event)">
-      <div class="field">
-        <label for="c-name">Your name</label>
-        <input id="c-name" required placeholder="e.g. Adaeze Okafor">
-      </div>
-      <div class="field">
-        <label for="c-business">Business name</label>
-        <input id="c-business" placeholder="e.g. Stitch &amp; Style">
-      </div>
-      <div class="field">
-        <label for="c-phone">WhatsApp number</label>
-        <input id="c-phone" required type="tel" placeholder="e.g. 08012345678">
-      </div>
-      <div class="field">
-        <label for="c-topic">Topic</label>
-        <select id="c-topic">
-          <option>General question</option>
-          <option>Partnership</option>
-          <option>Press</option>
-          <option>Complaint</option>
-          <option>Feedback</option>
-        </select>
-      </div>
-      <div class="field full">
-        <label for="c-message">Message</label>
-        <textarea id="c-message" required placeholder="Tell us a bit about what you need…"></textarea>
-      </div>
-      <button class="submit" type="submit">Send email →</button>
-    </form>
-  </section>
+  
 </main>
 <footer>
   <a href="privacy.html">Privacy Policy</a>
@@ -142,18 +110,6 @@ footer a:hover{color:#000}
   <a href="disclaimer.html">Disclaimer</a>
   <p style="margin-top:14px">©2026 Nafini. Making you bankable.</p>
 </footer>
-<script>
-function sendContact(e){
-  e.preventDefault();
-  var name = document.getElementById('c-name').value.trim();
-  var biz = document.getElementById('c-business').value.trim();
-  var phone = document.getElementById('c-phone').value.trim();
-  var topic = document.getElementById('c-topic').value;
-  var msg = document.getElementById('c-message').value.trim();
-  var subject = '[' + topic + '] ' + name + (biz ? ' \u2014 ' + biz : '');
-  var body = 'Name: ' + name + '\nBusiness: ' + biz + '\nWhatsApp: ' + phone + '\nTopic: ' + topic + '\n\n' + msg;
-  window.location.href = 'mailto:hello@nafini.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-}
-</script>
+
 </body>
 </html>
