@@ -78,8 +78,8 @@ footer a:hover{color:#000}
     <div class="card">
       <div class="ico">💬</div>
       <h3>WhatsApp</h3>
-      <p>Fastest way to reach us. Usually answered in under 2 hours during business hours.</p>
-      <a class="action" href="https://wa.me/2348152029380?text=Hello%20Nafini">Open chat →</a>
+      <p>The fastest way — just open WhatsApp and type <strong>"help"</strong>. We will take it from there.</p>
+      <a class="action" href="https://wa.me/2348152029380?text=help">Type help →</a>
     </div>
     <div class="card">
       <div class="ico">🏢</div>
@@ -102,8 +102,8 @@ footer a:hover{color:#000}
   </div>
 
   <section class="form-section">
-    <h2>Or send us a note.</h2>
-    <p>Drop your details and we'll WhatsApp you back within one business day.</p>
+    <h2>Or send us an email.</h2>
+    <p>Everything else — questions, feedback, ideas — goes to our inbox. We reply within one business day.</p>
     <form onsubmit="sendContact(event)">
       <div class="field">
         <label for="c-name">Your name</label>
@@ -131,7 +131,7 @@ footer a:hover{color:#000}
         <label for="c-message">Message</label>
         <textarea id="c-message" required placeholder="Tell us a bit about what you need…"></textarea>
       </div>
-      <button class="submit" type="submit">Send message →</button>
+      <button class="submit" type="submit">Send email →</button>
     </form>
   </section>
 </main>
@@ -150,8 +150,9 @@ function sendContact(e){
   var phone = document.getElementById('c-phone').value.trim();
   var topic = document.getElementById('c-topic').value;
   var msg = document.getElementById('c-message').value.trim();
-  var text = 'Hello Nafini, this is ' + name + (biz ? ' from ' + biz : '') + '. (' + topic + ')\n\n' + msg + '\n\nWhatsApp: ' + phone;
-  window.location.href = 'https://wa.me/2348152029380?text=' + encodeURIComponent(text);
+  var subject = '[' + topic + '] ' + name + (biz ? ' \u2014 ' + biz : '');
+  var body = 'Name: ' + name + '\nBusiness: ' + biz + '\nWhatsApp: ' + phone + '\nTopic: ' + topic + '\n\n' + msg;
+  window.location.href = 'mailto:hello@nafini.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
 </script>
 </body>
