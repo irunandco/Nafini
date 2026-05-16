@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nafini",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", ".", "--no-clipboard", "-p", "3777"],
+      "port": 3777
+    },
+    {
+      "name": "nafini-python",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765"],
+      "port": 8765
+    }
+  ]
+}

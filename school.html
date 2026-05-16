@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nafini Business School — Learn to Master Your Money</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --olive: #000000;
+  --lime: #c8e63a;
+  --lime-dark: #b0cc28;
+  --off-white: #f5f5f0;
+  --border: #e5e5e0;
+  --muted: #6b7280;
+  --black: #000;
+  --white: #fff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #fff; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--black); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 36px;
+}
+.logo {
+  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800;
+  color: var(--lime); text-decoration: none; letter-spacing: -0.02em;
+}
+.nav-links { list-style: none; display: flex; align-items: center; gap: 24px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: #fff; }
+.nav-cta {
+  background: var(--lime) !important; color: var(--black) !important;
+  padding: 7px 16px !important; border-radius: 20px !important;
+  font-weight: 700 !important; font-size: 12.5px !important;
+}
+.nav-cta:hover { background: var(--lime-dark) !important; }
+
+/* Hub tabs — pill-style sub-nav */
+.hub-tabs {
+  background: #fafaf5; border-bottom: 1px solid var(--border);
+  padding: 14px 48px; position: sticky; top: 60px; z-index: 80;
+}
+.hub-tabs-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; gap: 6px;
+}
+.hub-tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; font-size: 13.5px; font-weight: 600;
+  color: var(--muted); text-decoration: none;
+  border: 1px solid transparent; background: transparent;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+.hub-tab svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hub-tab:hover { background: rgba(0,0,0,0.04); color: #000; }
+.hub-tab.on {
+  background: #000; color: #fff; border-color: #000; font-weight: 700;
+}
+.hub-tab.on svg .accent { stroke: var(--lime); }
+
+/* Plan bar */
+.plan-bar {
+  padding: 12px 48px; font-size: 13px; text-align: center;
+  background: #fafaf7; color: var(--muted); border-bottom: 1px solid var(--border);
+}
+.plan-bar strong { color: var(--olive); font-weight: 700; }
+
+/* HERO */
+.blog-hero {
+  background: #fff; padding: 100px 48px 70px;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.blog-hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 12% 28%, rgba(200,230,58,0.18), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 90% 72%, rgba(200,230,58,0.14), transparent 60%);
+  animation: heroPulse 12s ease-in-out infinite alternate;
+}
+@keyframes heroPulse {
+  from { transform: scale(1) translateX(0); }
+  to   { transform: scale(1.08) translateX(2%); }
+}
+.blog-hero-inner { max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+
+.blog-stats {
+  display: flex; align-items: center; justify-content: center;
+  gap: 36px; margin-top: 42px; flex-wrap: wrap;
+}
+.blog-stat-val {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px; font-weight: 900; color: var(--olive);
+  letter-spacing: -0.025em; line-height: 1;
+}
+.blog-stat-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin-top: 5px; font-weight: 600; }
+.blog-stat-div { width: 1px; height: 36px; background: var(--border); }
+.eyebrow {
+  display: inline-flex; align-items: center; background: #eef5d8;
+  border-radius: 20px; padding: 5px 14px; margin-bottom: 22px;
+  font-size: 11px; font-weight: 700; color: #4a5e28;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.blog-h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -0.035em;
+  color: var(--olive); margin: 0 0 22px;
+}
+.blog-h1 span { color: var(--lime); -webkit-text-stroke: 1.5px var(--olive); text-stroke: 1.5px var(--olive); }
+.hero-sub {
+  font-size: 16px; line-height: 1.6; color: var(--muted);
+  max-width: 580px; margin: 0 auto 36px;
+}
+.search-row { display: flex; max-width: 480px; margin: 0 auto; gap: 0; }
+.search-row input {
+  flex: 1; padding: 14px 22px; font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  border: 1.5px solid var(--border); border-right: none;
+  background: #fff; color: var(--olive); outline: none;
+  border-radius: 999px 0 0 999px; transition: border-color 0.2s;
+}
+.search-row input:focus { border-color: var(--olive); }
+.search-row input::placeholder { color: #aaa; }
+.search-row button {
+  padding: 14px 26px; background: var(--olive); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+  border: 1.5px solid var(--olive); border-radius: 0 999px 999px 0;
+  cursor: pointer; transition: background 0.2s;
+}
+.search-row button:hover { background: #1a1a1a; }
+
+/* FILTER */
+.filter-bar {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 0 48px; overflow-x: auto;
+}
+.filter-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 8px; }
+.ftab {
+  padding: 16px 0; margin-right: 26px;
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  border: none; background: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+  white-space: nowrap; transition: color 0.2s;
+}
+.ftab:hover { color: var(--olive); }
+.ftab.active { color: var(--olive); border-bottom-color: var(--lime); }
+
+/* MAIN LAYOUT */
+.main { max-width: 1200px; margin: 0 auto; padding: 56px 48px 96px; }
+.layout { display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
+
+/* FEATURED */
+.featured {
+  position: relative; border-radius: 22px; overflow: hidden;
+  margin-bottom: 36px; cursor: pointer;
+  border: 1px solid var(--border);
+  transition: transform 0.28s, box-shadow 0.28s;
+}
+.featured:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(0,0,0,0.09); }
+.feat-img {
+  height: 320px; position: relative;
+  background: #000 url("images/hello-nafini.png") center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.feat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15) 45%, rgba(0,0,0,0) 70%); }
+.feat-cat {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--lime); color: var(--olive);
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px;
+}
+.feat-body { padding: 30px 32px 32px; background: #fff; }
+.feat-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 26px; font-weight: 800; line-height: 1.18;
+  letter-spacing: -0.02em; color: var(--olive); margin-bottom: 12px;
+}
+.feat-excerpt {
+  font-size: 15px; line-height: 1.65; color: var(--muted); margin-bottom: 18px;
+}
+.feat-meta {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: #aaa;
+}
+
+/* CARDS GRID */
+.grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 22px; margin-bottom: 28px;
+}
+.card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; cursor: pointer;
+  transition: transform 0.32s cubic-bezier(.22,.7,.2,1), box-shadow 0.32s, border-color 0.2s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.10), 0 0 0 2px rgba(200,230,58,0.5);
+  border-color: var(--lime);
+}
+
+/* Closing CTA banner — same language as tools.html */
+.school-cta {
+  margin: 56px auto 0; max-width: 1200px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 56px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
+  position: relative; overflow: hidden;
+}
+.school-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(40% 60% at 100% 0%, rgba(200,230,58,0.18), transparent 60%),
+    radial-gradient(35% 55% at 0% 100%, rgba(200,230,58,0.14), transparent 60%);
+  pointer-events: none;
+  animation: heroPulse 14s ease-in-out infinite alternate;
+}
+.school-cta-left { position: relative; z-index: 1; max-width: 540px; }
+.school-cta-h {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900; line-height: 1.1; letter-spacing: -0.025em;
+  margin-bottom: 14px;
+}
+.school-cta-h span { color: var(--lime); }
+.school-cta-p { font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+.school-cta-right { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+.school-cta-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--lime); color: #000;
+  padding: 14px 26px; border-radius: 999px;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.school-cta-btn:hover { background: var(--lime-dark); transform: translateY(-1px); }
+.school-cta-btn.ghost {
+  background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.school-cta-btn.ghost:hover { background: rgba(255,255,255,0.06); }
+.card-thumb {
+  height: 150px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff !important;
+  border-bottom: 1px solid var(--border);
+}
+.card-thumb .post-svg {
+  width: 64px; height: 64px;
+  stroke: #1a1a1a; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  animation: postFloat 4.5s ease-in-out infinite;
+}
+.card-thumb .post-svg .accent { stroke: #2c3a1a; fill: var(--lime); fill-opacity: 0.85; }
+.card-thumb .post-svg .dot    { fill: var(--lime); stroke: none; }
+.card-thumb .post-svg .anim-bar   { transform-origin: center bottom; animation: barRise 2.2s ease-in-out infinite alternate; }
+.card-thumb .post-svg .anim-bar.b2{ animation-delay: 0.15s; }
+.card-thumb .post-svg .anim-bar.b3{ animation-delay: 0.3s;  }
+.card-thumb .post-svg .anim-pulse { transform-origin: center; animation: pulseDot 1.6s ease-in-out infinite; }
+.card-thumb .post-svg .anim-rise  { transform-origin: bottom; animation: liftLine 3s ease-in-out infinite alternate; }
+.card-thumb .post-svg .anim-wave  { animation: waveSlide 3.5s ease-in-out infinite alternate; }
+.card-thumb .post-svg .anim-tilt  { transform-origin: 16px 16px; animation: tiltRock 3s ease-in-out infinite alternate; }
+.card-thumb .post-svg .anim-spin  { transform-origin: center; animation: spinSlow 6s linear infinite; }
+.card:hover .post-svg { animation-duration: 2.2s; }
+@keyframes postFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+@keyframes barRise   { from{transform:scaleY(0.55)} to{transform:scaleY(1)} }
+@keyframes pulseDot  { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.35);opacity:0.7} }
+@keyframes liftLine  { from{transform:translateY(2px) scaleY(0.9)} to{transform:translateY(-2px) scaleY(1.05)} }
+@keyframes waveSlide { from{transform:translateX(-2px)} to{transform:translateX(2px)} }
+@keyframes tiltRock  { from{transform:rotate(-7deg)} to{transform:rotate(7deg)} }
+@keyframes spinSlow  { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.cat-pill {
+  position: absolute; top: 12px; left: 12px;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 4px 10px; border-radius: 20px;
+  background: #eef5d8 !important;
+  color: #2c3a1a !important;
+  border: 1px solid transparent !important;
+}
+.card-body { padding: 20px 22px 22px; }
+.card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 800; line-height: 1.32;
+  color: var(--olive); margin-bottom: 8px; letter-spacing: -0.01em;
+}
+.card-exc {
+  font-size: 13px; line-height: 1.55; color: var(--muted);
+  margin-bottom: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: #aaa;
+}
+.card-meta span:last-child { color: var(--olive); font-weight: 700; }
+
+/* LIST ITEMS (after first 4) */
+.list-item {
+  display: flex; gap: 18px; padding: 22px 0;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+  transition: opacity 0.2s;
+}
+.list-item:hover { opacity: 0.75; }
+.list-thumb {
+  width: 96px; height: 80px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+.list-thumb .post-svg { width: 44px; height: 44px; }
+.list-cat {
+  display: inline-block; font-size: 10px; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 20px;
+  margin-bottom: 6px; background: #eef5d8; color: #4a5e28;
+}
+.list-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700; line-height: 1.35;
+  color: var(--olive); margin-bottom: 5px;
+}
+.list-meta { font-size: 12px; color: #aaa; }
+
+/* SIDEBAR */
+.sidebar > div { margin-bottom: 20px; }
+.s-card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 16px; padding: 22px;
+}
+.s-card.dark { background: var(--olive); border-color: var(--olive); color: #fff; }
+.s-title {
+  font-size: 11px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--muted); margin-bottom: 14px;
+}
+.s-card.dark .s-title { color: rgba(255,255,255,0.5); }
+
+.nl-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.nl-sub { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; margin-bottom: 18px; }
+.nl-input {
+  width: 100%; padding: 11px 14px; font-size: 13px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: #fff; border-radius: 10px; outline: none;
+  margin-bottom: 8px; font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s;
+}
+.nl-input::placeholder { color: rgba(255,255,255,0.3); }
+.nl-input:focus { border-color: var(--lime); }
+.nl-btn {
+  width: 100%; padding: 11px;
+  background: var(--lime); color: var(--olive);
+  border: none; border-radius: 10px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: background 0.2s;
+}
+.nl-btn:hover { background: var(--lime-dark); }
+
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  padding: 6px 12px; border: 1px solid var(--border);
+  border-radius: 999px; font-size: 12px; font-weight: 500;
+  cursor: pointer; color: var(--olive);
+  transition: all 0.18s;
+}
+.tag:hover { background: var(--lime); border-color: var(--lime); }
+
+.pop-item {
+  display: flex; gap: 12px; padding: 12px 0;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+  transition: opacity 0.2s;
+}
+.pop-item:last-child { border-bottom: none; }
+.pop-item:hover { opacity: 0.7; }
+.pop-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px; font-weight: 900;
+  color: var(--lime); flex-shrink: 0; min-width: 26px; line-height: 1;
+}
+.pop-title { font-size: 13px; font-weight: 600; color: var(--olive); line-height: 1.4; }
+.pop-cat { font-size: 11px; color: #aaa; margin-top: 3px; }
+
+.s-cta-card {
+  background: var(--lime); border-radius: 16px;
+  padding: 24px; text-align: center;
+}
+.s-cta-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 18px; font-weight: 900; letter-spacing: -0.01em;
+  color: var(--olive); margin-bottom: 6px;
+}
+.s-cta-sub { font-size: 12.5px; color: rgba(0,0,0,0.6); line-height: 1.55; margin-bottom: 16px; }
+.s-cta-btn {
+  display: block; padding: 11px; background: var(--olive); color: #fff;
+  font-size: 13px; font-weight: 700; border-radius: 999px;
+  text-decoration: none; transition: background 0.2s;
+}
+.s-cta-btn:hover { background: #1a1a1a; }
+
+/* LOAD MORE */
+.load-more { text-align: center; margin: 30px 0 0; }
+.load-btn {
+  background: transparent; border: 1.5px solid var(--olive);
+  color: var(--olive); padding: 12px 32px; border-radius: 999px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s;
+}
+.load-btn:hover { background: var(--olive); color: #fff; }
+
+/* MODAL */
+#modal {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.7); overflow-y: auto; padding: 32px 16px;
+}
+#modal.open { display: flex; align-items: flex-start; justify-content: center; }
+.modal-wrap {
+  background: #fff; max-width: 760px; width: 100%;
+  border-radius: 22px; overflow: hidden;
+  position: relative; margin: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+}
+.modal-hero {
+  height: 200px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+}
+.modal-cat {
+  position: absolute; top: 18px; left: 18px;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 5px 12px;
+  border-radius: 20px; background: #fff; color: var(--olive);
+}
+.modal-close {
+  position: absolute; top: 18px; right: 18px;
+  width: 38px; height: 38px; border: none;
+  background: var(--olive); color: #fff; border-radius: 50%;
+  cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: #1a1a1a; }
+.modal-body { padding: 36px 44px 44px; }
+.modal-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px; font-weight: 800; line-height: 1.18;
+  letter-spacing: -0.025em; color: var(--olive); margin-bottom: 16px;
+}
+.modal-meta {
+  display: flex; gap: 22px; font-size: 12px; color: #aaa;
+  padding-bottom: 22px; border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.content h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px; font-weight: 800; letter-spacing: -0.015em;
+  color: var(--olive); margin: 30px 0 12px;
+}
+.content p { font-size: 15px; line-height: 1.75; color: #444; margin-bottom: 16px; }
+.content strong { color: var(--olive); font-weight: 700; }
+.content ul, .content ol { padding-left: 22px; margin-bottom: 16px; }
+.content li { font-size: 15px; line-height: 1.75; color: #444; margin-bottom: 7px; }
+.callout {
+  background: #eef5d8; border-radius: 14px;
+  padding: 18px 22px; margin: 22px 0;
+  border-left: 4px solid var(--lime);
+}
+.callout p { color: var(--olive) !important; margin: 0; font-size: 14px; }
+
+.art-cta {
+  background: var(--olive); border-radius: 18px;
+  padding: 26px 28px; text-align: center; margin-top: 32px;
+}
+.art-cta-h {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px; font-weight: 800; color: #fff;
+  letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.art-cta-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 18px; }
+.art-cta-btn {
+  display: inline-block; padding: 12px 24px;
+  background: var(--lime); color: var(--olive);
+  border-radius: 999px; font-size: 13px; font-weight: 700;
+  text-decoration: none; transition: all 0.2s;
+}
+.art-cta-btn:hover { background: var(--lime-dark); transform: translateY(-1px); }
+
+/* FOOTER */
+footer {
+  background: #131310; padding: 36px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.foot-logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px; font-weight: 800; color: var(--lime);
+  text-decoration: none; letter-spacing: -0.02em;
+}
+.foot-links { list-style: none; display: flex; gap: 26px; }
+.foot-links a {
+  font-size: 12.5px; color: rgba(255,255,255,0.45);
+  text-decoration: none; transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--lime); }
+.foot-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
+
+/* HIDDEN — kept for legacy posts.tier logic (no-op since everything is free) */
+#upgrade-modal, .lock-shield, .card-locked, .tier-hd, .tier-badge { display: none !important; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 0 18px; }
+  .nav-links { display: none; }
+  .hub-tabs { padding: 0 18px; }
+  .blog-hero { padding: 64px 18px 50px; }
+  .filter-bar { padding: 0 18px; }
+  .main { padding: 36px 18px 60px; grid-template-columns: 1fr; }
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { margin-top: 36px; }
+  .grid { grid-template-columns: 1fr; }
+  .modal-body { padding: 26px 22px 32px; }
+  footer { padding: 28px 18px; flex-direction: column; text-align: center; }
+}
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Nafini</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="school.html" class="active">Business School</a></li>
+    <li><a href="tools.html">Business Tools</a></li>
+    <li><a href="https://wa.me/2348152029380?text=Join%20Nafini%20community">Community</a></li>
+    <li><a href="https://wa.me/2348152029380?text=Hello%20Nafini" class="nav-cta">Chat Nafini →</a></li>
+  </ul>
+</nav>
+
+<div class="hub-tabs">
+  <div class="hub-tabs-inner">
+    <a href="school.html" class="hub-tab on">
+      <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15H6a2 2 0 0 0-2 2z" class="accent"/><path d="M4 20a2 2 0 0 0 2 2h14"/></svg>
+      School
+    </a>
+    <a href="tools.html" class="hub-tab">
+      <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1 5.7 5.7l-1.4 1.4-5.7-5.7z" class="accent"/><path d="M3 21l7-7m4.7-7.7l5.7 5.7M13 9l-9 9v3h3l9-9"/></svg>
+      Tools
+    </a>
+  </div>
+</div>
+
+<div class="plan-bar" id="plan-bar">
+  Every lesson in the Business School is <strong>free</strong>. No sign-up. No paywall.
+</div>
+
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="eyebrow">Nafini Business School</div>
+    <h1 class="blog-h1">Learn to <span>master</span><br>your money.</h1>
+    <p class="hero-sub">Free financial education for business owners — written in plain language, built to help you grow.</p>
+    <div class="search-row">
+      <input type="text" id="search-input" placeholder="Search articles..." oninput="render()"/>
+      <button onclick="render()">Search</button>
+    </div>
+    <div class="blog-stats">
+      <div><div class="blog-stat-val">12+</div><div class="blog-stat-lbl">Free lessons</div></div>
+      <div class="blog-stat-div"></div>
+      <div><div class="blog-stat-val">~5 min</div><div class="blog-stat-lbl">Per read</div></div>
+      <div class="blog-stat-div"></div>
+      <div><div class="blog-stat-val">₦0</div><div class="blog-stat-lbl">Sign-up cost</div></div>
+      <div class="blog-stat-div"></div>
+      <div><div class="blog-stat-val">Monthly</div><div class="blog-stat-lbl">New lessons</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="ftab active" onclick="setFilter('all',this)">All articles</button>
+    <button class="ftab" onclick="setFilter('cash-flow',this)">Cash flow</button>
+    <button class="ftab" onclick="setFilter('pricing',this)">Pricing &amp; margin</button>
+    <button class="ftab" onclick="setFilter('growth',this)">Business growth</button>
+    <button class="ftab" onclick="setFilter('tax',this)">Tax &amp; compliance</button>
+    <button class="ftab" onclick="setFilter('mindset',this)">Money mindset</button>
+    <button class="ftab" onclick="setFilter('tools',this)">Tools &amp; systems</button>
+  </div>
+</div>
+
+<main class="main">
+  <div class="layout">
+    <div>
+      <article class="featured" onclick="open_(0)">
+        <div class="feat-img"><div class="feat-overlay"></div><div class="feat-cat">Featured · Cash flow</div></div>
+        <div class="feat-body">
+          <div class="feat-title">Why Your Business Makes ₦10M a Month but You Have Nothing to Show for It</div>
+          <div class="feat-excerpt">The most painful thing in business is not failure — it is making money and still feeling broke. Here is the exact reason this happens and what to do about it starting today.</div>
+          <div class="feat-meta"><span>Nafini Team</span><span>·</span><span>March 2026</span><span>·</span><span>12 min read</span></div>
+        </div>
+      </article>
+      <div id="pgrid"></div>
+      <div id="plist"></div>
+      <div class="load-more"><button class="load-btn" onclick="loadMore()">Load more articles</button></div>
+    </div>
+    <aside class="sidebar">
+      <div class="s-card dark">
+        <div class="nl-title">Join Business Tips.</div>
+        <div class="nl-sub">Every week — short, sharp lessons on cash flow, pricing, and what is working for founders right now.</div>
+        <input class="nl-input" type="email" placeholder="your@email.com"/>
+        <button class="nl-btn">Subscribe free →</button>
+      </div>
+      <div class="s-card">
+        <div class="s-title">Most read</div>
+        <div id="popular"></div>
+      </div>
+      <div class="s-card">
+        <div class="s-title">Browse by topic</div>
+        <div class="tag-cloud">
+          <div class="tag" onclick="setFilter('cash-flow',null)">Cash flow</div>
+          <div class="tag" onclick="setFilter('pricing',null)">Pricing</div>
+          <div class="tag" onclick="setFilter('growth',null)">Growth</div>
+          <div class="tag" onclick="setFilter('tax',null)">Tax</div>
+          <div class="tag" onclick="setFilter('mindset',null)">Mindset</div>
+          <div class="tag" onclick="setFilter('tools',null)">Tools</div>
+        </div>
+      </div>
+      <div class="s-cta-card">
+        <div class="s-cta-title">Free diagnosis</div>
+        <div class="s-cta-sub">3 questions. Instant financial health report.</div>
+        <a href="tools.html?tool=health-score" class="s-cta-btn">Get diagnosed free →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Closing CTA -->
+  <div class="school-cta">
+    <div class="school-cta-left">
+      <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(200,230,58,0.14);color:var(--lime);font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:16px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px rgba(200,230,58,0.6);"></span>
+        Apply what you learn
+      </div>
+      <h2 class="school-cta-h">Read enough.<br>Now <span>build</span> with the tools.</h2>
+      <p class="school-cta-p">Lessons are great, but action moves the needle. Open the Bankable Tools to generate your pricing, your plan, your reports — in minutes.</p>
+    </div>
+    <div class="school-cta-right">
+      <a href="tools.html" class="school-cta-btn">Open Bankable Tools →</a>
+      <a href="https://wa.me/2348152029380?text=Hello%20Nafini" class="school-cta-btn ghost">💬 Chat Nafini</a>
+    </div>
+  </div>
+</main>
+
+<div id="modal" onclick="if(event.target===this)close_()">
+  <div class="modal-wrap">
+    <div class="modal-hero" id="mhero"></div>
+    <button class="modal-close" onclick="close_()">&#10005;</button>
+    <div class="modal-body">
+      <h1 class="modal-title" id="mtitle"></h1>
+      <div class="modal-meta" id="mmeta"></div>
+      <div class="content" id="mcontent"></div>
+      <div class="art-cta">
+        <div class="art-cta-h">Ready to take control?</div>
+        <div class="art-cta-sub">Free financial diagnosis. 2 minutes. No sign-up needed.</div>
+        <a href="tools.html?tool=health-score" class="art-cta-btn">Diagnose my business free →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="foot-logo">Nafini</a>
+  <ul class="foot-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tools.html">Tools</a></li>
+    <li><a href="school.html">School</a></li>
+    <li><a href="https://wa.me/2348152029380?text=Hello%20Nafini">Chat</a></li>
+  </ul>
+  <span class="foot-copy">© 2026 Nafini Ltd. All rights reserved.</span>
+</footer>
+
+<script>
+const posts=[
+  {id:0,title:"Why Your Business Makes N10M a Month but You Have Nothing to Show for It",excerpt:"The most painful thing in business is not failure. It is making money and still feeling broke. Here is the exact reason this happens.",cat:"cash-flow",lbl:"Cash flow",clr:"#4A9EFF",bg:"#EFF6FF",icon:"💸",read:"12 min",date:"March 2026",featured:true,body:`<p>You have just checked your bank account. You know you billed N10M this month. But there is N800,000 sitting there. You feel sick.</p><p>This is one of the most common experiences among Nigerian business owners — and it has a name. It is called a <strong>cash flow gap</strong>. And it is not your fault. But it is fixable.</p><h2>The three reasons money vanishes</h2><p><strong>1. You are paying before you are being paid.</strong> You buy stock, pay staff, settle vendors — then wait 30, 60, 90 days for clients to pay. That gap is where your cash goes.</p><p><strong>2. Your expenses have grown silently.</strong> When you started, you had 3 expenses. Now you have 23. Most business owners cannot name them all.</p><p><strong>3. You are confusing revenue with profit.</strong> N10M revenue is not N10M profit. After costs, staff, rent, logistics, and taxes — the real number is often 25–40% of that.</p><div class="callout"><p><strong>Quick test:</strong> Write down your top 10 monthly expenses right now without looking at your accounts. If you cannot — or the total is wrong by more than 20% — you have a visibility problem, not an income problem.</p></div><h2>What to do this week</h2><ul><li>List every expense from last month — every subscription, salary, vendor payment, utility</li><li>Calculate your real gross margin: (Revenue - Cost of goods) divided by Revenue times 100</li><li>Identify your top 3 expenses and ask: are these generating revenue or just costing money?</li><li>Set a rule: no expense over N50,000 without written justification</li></ul><h2>The system that prevents this forever</h2><p>The businesses that never have this problem are not smarter. They just have a system. They know their numbers daily, not monthly. They track every naira in and out in real time. Most Nafini users recover N200,000–N900,000 per month in their first 90 days — not by making more money, but by stopping the bleeding.</p>`},
+  {id:1,title:"How to Price Your Product Correctly and Stop Leaving Money on the Table",excerpt:"Most business owners underprice. Not because they lack confidence — but because they do not know their real costs.",cat:"pricing",lbl:"Pricing",clr:"#C9960A",bg:"#FFFBF0",icon:"💰",read:"9 min",date:"March 2026",body:`<p>Underpricing is a silent business killer. You work harder, serve more customers — and end up with less profit than when you started.</p><p>The problem is not confidence. It is that most owners do not know their actual cost to serve each customer.</p><h2>The simple pricing formula</h2><p>Your price must cover three things:</p><ul><li><strong>Direct costs</strong> — materials, labour, packaging, delivery for this specific product</li><li><strong>Overhead contribution</strong> — your share of rent, utilities, subscriptions, admin</li><li><strong>Profit margin</strong> — the money you actually keep. Not revenue. Profit.</li></ul><div class="callout"><p><strong>Example:</strong> Direct cost N2,000 + overhead N500, target 40% margin. Minimum price: N2,500 divided by (1 - 0.40) = <strong>N4,167</strong>. Not N3,000. Not N3,500. N4,167.</p></div><h2>The courage test</h2><p>Raise your price by 15% on your next quote. Most business owners find the vast majority of customers do not flinch. A 15% increase on N5M monthly revenue is N750,000 more per month — N9M more per year.</p><h2>When to review your prices</h2><ul><li>Every 6 months as a standard practice</li><li>When any major input cost increases by more than 10%</li><li>When you are turning away too much work — this is the market telling you to charge more</li><li>When your margins are shrinking despite stable revenue</li></ul>`},
+  {id:2,title:"The 13-Week Cash Flow Forecast: How to Always Know If Payroll Will Clear",excerpt:"Stop guessing whether you can make payroll. This one planning tool gives you 3 months of financial visibility.",cat:"cash-flow",lbl:"Cash flow",clr:"#4A9EFF",bg:"#EFF6FF",icon:"📅",read:"8 min",date:"February 2026",body:`<p>The most stressful moment in business is the week before payroll when you are not sure if the money will be there. This stress is completely avoidable.</p><p>A 13-week cash flow forecast tells you right now whether you will have enough money to operate for the next 3 months.</p><h2>How to build one in 30 minutes</h2><p>You need two lists:</p><ul><li><strong>Money coming in:</strong> All expected payments from clients, when they are due, and how likely they are to pay on time</li><li><strong>Money going out:</strong> Every fixed cost and variable cost you expect in the next 13 weeks</li></ul><p>Map these week by week. The weeks where outflows exceed inflows are your danger zones — and you now have time to prepare.</p><div class="callout"><p><strong>The rule:</strong> Your cash balance should never drop below 4 weeks of operating expenses. If your forecast shows it will — you know today, not the day it happens.</p></div><h2>What to do when you see a gap coming</h2><ul><li>Chase outstanding invoices aggressively 3 weeks before the gap</li><li>Delay non-critical vendor payments by 1–2 weeks</li><li>Offer early payment discounts to clients who owe you</li><li>Temporarily pause non-essential subscriptions</li></ul>`},
+  {id:3,title:"How to Catch Employee Theft Before It Destroys Your Business",excerpt:"It happens more than anyone admits. Here is how to build a system that makes theft virtually impossible.",cat:"tools",lbl:"Tools",clr:"#8B5CF6",bg:"#F5F3FF",icon:"🔍",read:"7 min",date:"February 2026",body:`<p>Nobody wants to believe someone on their team is stealing. But internal theft is one of the most common reasons profitable businesses quietly bleed money.</p><h2>The three most common forms</h2><ul><li><strong>Cash skimming:</strong> Taking money before it is recorded — common in restaurants, retail, market businesses</li><li><strong>Expense inflation:</strong> Submitting receipts for more than actually spent, or creating fake receipts</li><li><strong>Vendor kickbacks:</strong> Staff recommends a supplier and receives a secret commission — meaning you pay above market rate</li></ul><div class="callout"><p><strong>Key principle:</strong> No single person should be able to approve a payment AND record it. Separate these roles, even in a small team.</p></div><h2>The system that makes theft visible</h2><ul><li>Require photo receipts for every expense over N5,000</li><li>Compare vendor invoices to market rates quarterly</li><li>Review petty cash weekly, not monthly</li><li>Track patterns — unusual spikes in specific expense categories</li><li>Run random spot checks on cash transactions</li></ul>`},
+  {id:4,title:"Should I Hire? The Financial Test Every Business Owner Must Run First",excerpt:"Hiring too early has killed more businesses than not hiring. Here is the exact calculation to know when you are ready.",cat:"growth",lbl:"Growth",clr:"#0EA868",bg:"#F0FDF4",icon:"👥",read:"6 min",date:"January 2026",body:`<p>You are overwhelmed. You are turning down work. You are convinced you need to hire. But hiring too early can break an otherwise healthy business.</p><h2>The three questions</h2><p><strong>1. Can your current revenue sustain the salary for 6 months — even if that person generates zero revenue?</strong> New hires rarely add value immediately. If adding the salary drains your cash runway below 8 weeks, you are not ready.</p><p><strong>2. What is this person actually replacing?</strong> Identify exactly which tasks consume your time.</p><p><strong>3. Will this hire directly generate or protect revenue?</strong></p><div class="callout"><p><strong>The rule of thumb:</strong> A good hire should generate at least 3x their salary in value within 6 months — through new revenue, cost savings, or freeing you for higher-value work.</p></div><h2>The calculation</h2><p>Salary + taxes + benefits + onboarding cost + your time to manage them multiplied by 6 months = what a hire costs before they contribute anything. Can your business absorb that comfortably?</p>`},
+  {id:5,title:"Understanding Your P&L Statement Without an Accounting Degree",excerpt:"Your P&L is the most important document in your business. Most owners do not read it. Here is how to understand it in 10 minutes.",cat:"tools",lbl:"Tools",clr:"#8B5CF6",bg:"#F5F3FF",icon:"📊",read:"10 min",date:"January 2026",body:`<p>Your Profit and Loss statement tells you one thing: did your business actually make money last month? Not did money come in — did you make money after everything was paid.</p><h2>The four numbers that matter</h2><p><strong>1. Revenue:</strong> Total money received. The top line. Looks great. Do not celebrate yet.</p><p><strong>2. Cost of Goods Sold (COGS):</strong> The direct cost of everything you sold. Revenue minus COGS equals Gross profit.</p><p><strong>3. Operating expenses:</strong> Rent, staff, utilities, marketing, subscriptions. Gross profit minus opex equals Operating profit.</p><p><strong>4. Net profit:</strong> After taxes and interest. This is what you actually kept.</p><div class="callout"><p><strong>Healthy benchmark:</strong> For most Nigerian SMEs, aim for 40–60% gross margin and 10–20% net profit margin. If you are below these, your P&L shows exactly where to tighten.</p></div><h2>Three questions to ask your P&L every month</h2><ul><li>Which expense category grew the most — and why?</li><li>Is my gross margin improving or declining?</li><li>What percentage of revenue am I keeping as net profit?</li></ul>`},
+  {id:6,title:"The Money Mindset Shift That Separates Growing Businesses from Struggling Ones",excerpt:"It is not about working harder. The businesses that grow consistently all share one way of thinking about money.",cat:"mindset",lbl:"Mindset",clr:"#E05A4A",bg:"#FFF0EE",icon:"🧠",read:"6 min",date:"December 2025",body:`<p>Two businesses. Same city. Same product. Same market. One is growing — the other is stuck. The difference almost always comes down to how the owner thinks about money.</p><h2>The scarcity trap</h2><p>"I will invest in proper systems when I am making more money." But without proper systems, they never make more money. The cycle is vicious.</p><h2>Revenue is vanity. Profit is sanity. Cash is king.</h2><p>A business owner who obsesses over revenue but ignores profit will always feel poor. One who knows their exact profit margin every week makes better decisions about pricing, hiring, spending, and growth.</p><div class="callout"><p><strong>The shift:</strong> Stop asking "How much did I make this month?" Start asking "How much did I keep — and why?"</p></div><h2>The daily habit that changes everything</h2><p>Spend 5 minutes every morning reviewing your financial position. What came in yesterday? What went out? What is outstanding? Five minutes. Every day. Within 90 days your relationship with money will be completely different.</p>`},
+  {id:7,title:"How to Negotiate with Vendors and Save N500,000 a Month",excerpt:"Every vendor has a negotiation range. Most business owners never use it. Here is exactly how to do it without awkwardness.",cat:"growth",lbl:"Growth",clr:"#0EA868",bg:"#F0FDF4",icon:"🤝",read:"7 min",date:"December 2025",body:`<p>Your vendors have a price they show you and a price they are willing to accept. The gap — across all your vendors — is often N200,000 to N700,000 per month for a typical SME.</p><h2>The three-step negotiation framework</h2><p><strong>Step 1: Know your numbers first.</strong> Know exactly how much you are spending, how long you have been with them, and what alternatives exist.</p><p><strong>Step 2: Lead with the relationship.</strong> "We have been working together for X months. I want to continue growing with you, but I need your help on pricing to make that sustainable."</p><p><strong>Step 3: Ask for something specific.</strong> Not "a better price" — but a specific number. "Can we get to N180,000 from N220,000? That would allow us to commit to a 6-month contract."</p><div class="callout"><p><strong>The rule:</strong> Always negotiate in person or on a call — never by text or email. Tone matters more than words in a negotiation.</p></div>`},
+  {id:8,title:"FIRS, VAT, and WHT: A Plain Guide to Nigerian Tax for Small Businesses",excerpt:"Tax compliance does not have to be terrifying. Here is what you actually need to know as a small business owner.",cat:"tax",lbl:"Tax",clr:"#C9960A",bg:"#FFF7ED",icon:"🧾",read:"11 min",date:"November 2025",body:`<p>Most Nigerian small business owners are either completely on top of their tax obligations, or quietly terrified of FIRS. The second camp is much larger.</p><h2>Company Income Tax (CIT)</h2><p>If your business is incorporated, you pay CIT on taxable profits. For small businesses (under N25M turnover): 0%. Medium (N25M–N100M): 20%. Above N100M: 30%.</p><h2>Value Added Tax (VAT)</h2><p>VAT is 7.5% in Nigeria. Turnover exceeding N25M per year requires VAT registration — charge it on applicable goods/services and remit monthly to FIRS.</p><h2>Withholding Tax (WHT)</h2><p>When paying consultants, contractors, and professionals, withhold a percentage (usually 5–10%) and remit to FIRS on their behalf.</p><div class="callout"><p><strong>The most important thing:</strong> Keep clean records. FIRS audits are increasingly sophisticated. Organised books always fare better — even if minor errors exist.</p></div><h2>The quarterly rhythm</h2><ul><li>File VAT returns monthly (by 21st of following month)</li><li>Remit WHT monthly (by 21st of following month)</li><li>File annual CIT return within 6 months of financial year end</li><li>Keep all receipts for minimum 6 years</li></ul>`},
+  {id:9,title:"Invoice Like a Pro: How to Get Paid Faster and Stop Chasing Clients",excerpt:"Late payments kill cash flow. These 6 changes to how you invoice will get money in the bank faster, every time.",cat:"tools",lbl:"Tools",clr:"#8B5CF6",bg:"#F5F3FF",icon:"📄",read:"6 min",date:"November 2025",body:`<p>Every day a client owes you unpaid money is a day your cash flow is being quietly strangled.</p><h2>6 changes to make to every invoice</h2><p><strong>1. Invoice immediately.</strong> The moment work is complete — not at end of month.</p><p><strong>2. Make the due date impossible to miss.</strong> Do not write "30 days from invoice date." Write the actual calendar date.</p><p><strong>3. Add a late payment clause.</strong> "A 5% late fee applies to invoices unpaid after the due date."</p><p><strong>4. Make payment easy.</strong> Include account details, bank name, and sort code on every invoice.</p><p><strong>5. Follow up before the due date.</strong> A reminder 3 days before cuts late payments significantly.</p><div class="callout"><p><strong>6. Get a deposit upfront.</strong> For any project over N100,000, require 30–50% before starting. Filters out time-wasters and gives you leverage.</p></div>`},
+  {id:10,title:"How to Build a Budget That Actually Works",excerpt:"Most business budgets get abandoned by week 3. Here is a different approach that you can actually stick to.",cat:"tools",lbl:"Tools",clr:"#8B5CF6",bg:"#F5F3FF",icon:"📋",read:"8 min",date:"October 2025",body:`<p>You have tried to budget before. Set up a spreadsheet, filled in categories, felt organised — then stopped looking at it by week two. The reason most budgets fail is not discipline. It is design.</p><h2>The 3-bucket system</h2><ul><li><strong>Must pay:</strong> Fixed costs — rent, salaries, loan repayments, essential subscriptions. Pay these first, always.</li><li><strong>Should pay:</strong> Variable operational costs — stock, marketing, transport. Budget a maximum. Track weekly.</li><li><strong>Want to pay:</strong> Growth investments. Only spend from this bucket if the first two are covered.</li></ul><div class="callout"><p><strong>The weekly ritual:</strong> Every Monday, 10 minutes reviewing last week and updating your forecast for the week ahead. A budget you can actually maintain.</p></div><h2>The one rule that makes it work</h2><p>Every spending decision should answer: "How does this help the business make or keep more money?" If you cannot answer clearly — wait.</p>`},
+  {id:11,title:"Growing Too Fast: The Financial Warning Signs You Should Not Ignore",excerpt:"Rapid growth feels amazing — until it does not. These are the early signs that growth is outpacing your financial foundations.",cat:"growth",lbl:"Growth",clr:"#0EA868",bg:"#F0FDF4",icon:"🚀",read:"7 min",date:"October 2025",body:`<p>It sounds strange that growing too fast can kill a business. But it is one of the most documented causes of business failure.</p><h2>The 5 warning signs</h2><p><strong>1. You are profitable on paper but always short on cash.</strong> Growing businesses often invoice more than they collect.</p><p><strong>2. Your quality is slipping.</strong> Customers complaining more, or rework is increasing. This is a capacity problem wearing a quality mask.</p><p><strong>3. Hiring decisions are reactive.</strong> Hiring because you are drowning right now — not because you have a 6-month plan.</p><p><strong>4. You have lost track of margins.</strong> When you started, you knew exactly what each product cost you. Now you are not sure.</p><div class="callout"><p><strong>5. You are avoiding your numbers.</strong> When business owners start avoiding their own financial data — growth has become chaos.</p></div><h2>What to do</h2><p>Slow down deliberately before the market forces you to. Do a financial health check. Get clarity on real margins. Hire for the next 6 months — not last month.</p>`}
+];
+
+// Every lesson is FREE — no tiers, no plan gating
+const isPaid = true;
+const userPlan = 'free';
+posts.forEach(p => { p.tier = 'free'; });
+
+let cf='all',vis=6;
+
+const POST_ICONS = {
+  'cash-flow': `<svg class="post-svg" viewBox="0 0 32 32">
+    <path class="anim-wave" d="M3 14c4-4 6 4 10 0s6 4 10 0s4 4 6 0" stroke-width="2.2"/>
+    <path class="anim-wave accent" d="M3 22c4-4 6 4 10 0s6 4 10 0s4 4 6 0" stroke-width="2.2" fill="none"/>
+  </svg>`,
+  'pricing': `<svg class="post-svg" viewBox="0 0 32 32">
+    <rect class="accent" x="6" y="4" width="20" height="24" rx="3"/>
+    <line x1="11" y1="9" x2="21" y2="9"/>
+    <line x1="11" y1="14" x2="21" y2="14"/>
+    <line x1="11" y1="19" x2="17" y2="19"/>
+    <circle class="dot anim-pulse" cx="22" cy="24" r="2"/>
+  </svg>`,
+  'growth': `<svg class="post-svg" viewBox="0 0 32 32">
+    <line x1="4" y1="26" x2="28" y2="26"/>
+    <line x1="4" y1="6" x2="4" y2="26"/>
+    <polyline class="anim-rise accent" points="6,22 12,17 17,19 23,11 27,7" stroke-width="2.2" fill="none"/>
+    <circle class="dot anim-pulse" cx="27" cy="7" r="2"/>
+  </svg>`,
+  'tax': `<svg class="post-svg" viewBox="0 0 32 32">
+    <path class="accent" d="M8 4h12l4 4v20H8z"/>
+    <path d="M20 4v4h4"/>
+    <line x1="11" y1="13" x2="21" y2="13"/>
+    <line x1="11" y1="17" x2="21" y2="17"/>
+    <line x1="11" y1="21" x2="17" y2="21"/>
+  </svg>`,
+  'mindset': `<svg class="post-svg" viewBox="0 0 32 32">
+    <path class="accent anim-tilt" d="M9 6a7 7 0 0 1 14 0c0 4-2 6-3 9-1 2-2 4-2 6h-4c0-2-1-4-2-6-1-3-3-5-3-9z"/>
+    <line x1="12" y1="23" x2="20" y2="23"/>
+    <line x1="13" y1="26" x2="19" y2="26"/>
+    <circle class="dot anim-pulse" cx="16" cy="11" r="1.6"/>
+  </svg>`,
+  'tools': `<svg class="post-svg" viewBox="0 0 32 32">
+    <line x1="4" y1="26" x2="28" y2="26"/>
+    <line x1="4" y1="6" x2="4" y2="26"/>
+    <rect class="accent anim-bar"    x="8"  y="14" width="3.5" height="12" rx="1"/>
+    <rect class="accent anim-bar b2" x="14" y="10" width="3.5" height="16" rx="1"/>
+    <rect class="accent anim-bar b3" x="20" y="17" width="3.5" height="9"  rx="1"/>
+  </svg>`,
+};
+function postIconHtml(cat){
+  return POST_ICONS[cat] || POST_ICONS['tools'];
+}
+
+// Per-post Unsplash photos that depict the issue
+const POST_IMAGES = {
+  0:  '1611974789855-9c2a0a7236a3', // ₦10M but broke → wallet
+  1:  '1554224154-26032ffc0d07',    // pricing → calculator
+  2:  '1454165804606-c3d57bc86b40', // 13-week forecast → calendar/plan
+  3:  '1556761175-5973dc0f32e7',    // employee theft → paperwork audit
+  4:  '1521737711867-e3b97375f902', // hiring → team meeting
+  5:  '1543286386-713bdd548da4',    // P&L → charts on screen
+  6:  '1573164574572-cb89e39749b4', // mindset → thoughtful
+  7:  '1559526324-c1f275fbfa32',    // negotiation → handshake
+  8:  '1450101499163-c8848c66ca85', // tax → laptop & papers
+  9:  '1486312338219-ce68d2c6f44d', // invoicing → laptop work
+  10: '1601597111158-2fceff292cdc', // budget → calculator/cash
+  11: '1488998427799-e3362cec87c3', // growing too fast → plant growth
+};
+function postImageUrl(p, w){
+  const id = POST_IMAGES[p.id];
+  if(!id) return '';
+  return `https://images.unsplash.com/photo-${id}?w=${w||800}&h=${Math.round((w||800)*0.62)}&fit=crop&q=80&auto=format`;
+}
+
+function cardHtml(p){
+  const locked=p.tier==='paid'&&!isPaid;
+  return `<div class="card${locked?' card-locked':''}" onclick="open_(${p.id})">
+    <div class="card-thumb">${postIconHtml(p.cat)}<div class="cat-pill">${p.lbl}</div></div>
+    <div class="card-body">
+      <div class="card-title">${p.title}</div>
+      <div class="card-exc">${p.excerpt}</div>
+      <div class="card-meta"><span style="color:#999;font-weight:300">${p.read} read</span><span style="font-weight:700">${locked?'Members only':'Read →'}</span></div>
+    </div>
+    ${locked?'<div class="lock-shield"><div class="lock-shield-icon">🔒</div><div class="lock-shield-lbl">Members Only</div></div>':''}
+  </div>`;}
+
+function listHtml(p){
+  const locked=p.tier==='paid'&&!isPaid;
+  return `<div class="list-item${locked?' card-locked':''}" onclick="open_(${p.id})" style="position:relative">
+    <div class="list-thumb" style="background:#fff;border:1px solid var(--border)">${locked?'🔒':postIconHtml(p.cat)}</div>
+    <div>
+      <div class="list-cat">${p.lbl}</div>
+      <div class="list-title">${p.title}</div>
+      <div class="list-meta">${locked?'<strong>Members only</strong> · ':''}${p.read} read · ${p.date}</div>
+    </div>
+  </div>`;}
+
+function render(){
+  const grid=document.getElementById('pgrid');
+  const q=document.getElementById('search-input').value.toLowerCase();
+  const fp=posts.filter(p=>{
+    if(p.featured)return false;
+    const mf=cf==='all'||p.cat===cf;
+    const ms=!q||p.title.toLowerCase().includes(q)||p.excerpt.toLowerCase().includes(q);
+    return mf&&ms;
+  });
+  // Every lesson is free — one flat grid, no tier sections
+  let html = `<div class="grid">${fp.slice(0,4).map(cardHtml).join('')}</div>`;
+  html += fp.slice(4).map(listHtml).join('');
+  grid.innerHTML = html;
+  document.getElementById('plist').innerHTML = '';
+}
+
+function renderPop(){
+  document.getElementById('popular').innerHTML=posts.filter(p=>!p.featured).slice(0,4).map((p,i)=>`
+    <div class="pop-item" onclick="open_(${p.id})">
+      <div class="pop-num">${i+1}</div>
+      <div><div class="pop-title">${p.title}</div><div class="pop-cat">${p.lbl} · ${p.read}</div></div>
+    </div>`).join('');
+}
+
+function setFilter(cat,btn){
+  cf=cat;
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  render();
+}
+
+function loadMore(){vis+=4;render();}
+
+function closeUpgrade(){document.getElementById('upgrade-modal').classList.remove('open');document.body.style.overflow='';}
+
+function open_(id){
+  const p=posts.find(x=>x.id===id);
+  if(!p)return;
+  if(p.tier==='paid'&&!isPaid){document.getElementById('upgrade-modal').classList.add('open');document.body.style.overflow='hidden';return;}
+  const mh=document.getElementById('mhero');
+  mh.innerHTML = `<div style="font-size:5rem">${p.icon}</div><div class="modal-cat">${p.lbl}</div>`;
+  mh.style.background = '#f0f0e8';
+  document.getElementById('mtitle').textContent=p.title;
+  document.getElementById('mmeta').innerHTML=`<span>Nafini Team</span><span>${p.date}</span><span>${p.read} read</span>`;
+  document.getElementById('mcontent').innerHTML=p.body;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function close_(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close_();});
+render();renderPop();
+</script>
+</body>
+</html>

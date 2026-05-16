@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nafini</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <!-- Transparent header that blends with the hero -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html">
+        <span class="brand-name"><img src="images/nafini over lay.png" alt="nafini logo"></span>
+      </a>
+
+      <!-- Hamburger (CSS-only) -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+      <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+
+      <!-- Menu -->
+      <ul class="menu">
+        <!-- PRODUCTS -->
+        <li class="has-submenu">
+          <!-- Desktop trigger (hover) -->
+          <a href="#" class="toplink">Products <i class="arrow"></i></a>
+          <!-- Mobile trigger (tap-to-open) -->
+          <input type="checkbox" id="sub-products" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-products" class="sub-trigger">Products <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Products">
+            <a href="NFB.html">Nafini for Business</a>
+            <a href="NFM.html">Nafini for me</a>
+            
+          </div>
+        </li>
+
+        <!-- COMPANY -->
+        <li class="has-submenu">
+          <a href="#" class="toplink">Company <i class="arrow"></i></a>
+          <input type="checkbox" id="sub-company" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-company" class="sub-trigger">Company <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Company">
+            <a href="the about.html">About</a>
+            <a href="terms.html">Terms of use </a>
+            <a href="press.html">Press</a>
+          </div>
+        </li>
+
+        <!-- SUPPORT -->
+        <li class="has-submenu">
+          <a href="#" class="toplink">Support <i class="arrow"></i></a>
+          <input type="checkbox" id="sub-support" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-support" class="sub-trigger">Support <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Support">
+            <a href="The Faqs.html">FAQS</a>
+            <a href="The contact us.html">Contact us</a>
+          </div>
+        </li>
+
+        <!-- COMMUNITY -->
+        <li class="has-submenu">
+          <a href="#" class="toplink">Community <i class="arrow"></i></a>
+          <input type="checkbox" id="sub-community" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-community" class="sub-trigger">Community <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Community">
+            <a href="Influencer.html">Influencer</a>
+            <a href="The ambassador.html">Ambassadors</a>
+          </div>
+        </li>
+
+
+      </ul>
+
+
+      <a class="btn btn-pill" id="getstarted" href="https://wa.me/2348152029380?text=Hello%20Nafini">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- Hero with exact gradient image -->
+  <section class="heroNFB">
+    <div class="container hero-inner">
+
+          <img src="video/nafini butterfly 2.gif" id="gif1" alt="Butterfly animation">
+          <img src="video/to the moon.gif" id="gif2" alt="Butterfly animation">
+
+      <!-- Individual view -->
+      <div class="pagesheadline" >
+        <h1>Terms<br>of<br>Use.</h1>
+        <p class="sub">Welcome to Nafini!
+These Terms of Use (“Terms”) govern your access to and use of Nafini’s services, products, and platforms (collectively, the “Services”). By using Nafini, you agree to these Terms. Please read them carefully.</p>
+        <div class="center-cta">
+          <a href="https://wa.me/2348152029380?text=Hello%20Nafini"><button class="btn light">Get Started</button></a>
+        </div>
+      </div>
+
+
+      <!-- Floating cards (demo images, swap with your assets) -->
+      <div class="cards"  >
+        
+        <figure class="card card-center">
+          <img src="images/new new nafini home page airtime_.png" alt="hand holding a phone" >
+        </figure>
+        
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+
+  <div style="margin-top: 150px;">
+  This content is pushed down by 50px
+ </div>
+  <!-- ===== FAQ ACCORDION (HTML) ===== -->
+<section class="faq" id="faqterms">
+  <h2 class="faq__title">Nafini Terms of Use</h2>
+
+  <div class="faq__list" role="tablist" aria-label="FAQ">
+    <!-- 1 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q1" aria-expanded="false" aria-controls="a1" role="tab">
+          1. About Nafini
+        </button>
+      </h3>
+      <div id="a1" class="faq__panel" role="region" aria-labelledby="q1" hidden>
+        <p>Nafini is a lifestyle and business assistant that helps you manage tasks, payments, and routines.
+         <br>Important Notice: Nafini is not a bank.All financial services are provided securely through Nomba,A CBN-licensed and NDIC-insured bank.Nafini acts as a technology platform,while your funds remain protected under Nomba’s regulated banking framework.
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q2" aria-expanded="false" aria-controls="a2" role="tab">
+          2. Eligibility
+        </button>
+      </h3>
+      <div id="a2" class="faq__panel" role="region" aria-labelledby="q2" hidden>
+        <p> 1. You must be at least 18 years old (or the age of majority in your jurisdiction).
+        <br>2. By using Nafini, you confirm you have the legal capacity to accept these Terms.</p>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q3" aria-expanded="false" aria-controls="a3" role="tab">
+         3. Account Registration
+        </button>
+      </h3>
+      <div id="a3" class="faq__panel" role="region" aria-labelledby="q3" hidden>
+        <p>  1. To use certain features, you must create an account.
+        <br> 2. You agree to provide accurate and complete information.
+        <br> 3. You are responsible for keeping your login credentials safe.
+        <br> 4. Notify us immediately if you suspect unauthorized access.</p>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q4" aria-expanded="false" aria-controls="a4" role="tab">
+          4. Using Nafini
+        </button>
+      </h3>
+      <div id="a4" class="faq__panel" role="region" aria-labelledby="q4" hidden>
+        <p>
+        <br>1. When you use Nafini, you agree that you will:
+        <br>2. Use the Services only for lawful purposes.
+        <br>3. Not impersonate others or misrepresent your identity.
+        <br>4. Not misuse, hack, or disrupt Nafini’s systems.
+        <br>5. Not use Nafini for spam, fraud, or prohibited activities.
+        <br>We may suspend or terminate your account if these rules are violated.</p>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q5" aria-expanded="false" aria-controls="a5" role="tab">
+          5. Payments & Transactions
+        </button>
+      </h3>
+      <div id="a5" class="faq__panel" role="region" aria-labelledby="q5" hidden>
+        <p> 1. Nafini enables payments, bill reminders, and split transactions (including through CapSlice).
+        <br>2. Nafini does not hold funds — all transactions are processed by Nomba and other licensed third-party providers.
+        <br>3. You are responsible for ensuring transaction details are correct.</p>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q6" aria-expanded="false" aria-controls="a6" role="tab">
+          6. Refund & Cancellation Policy
+        </button>
+      </h3>
+      <div id="a6" class="faq__panel" role="region" aria-labelledby="q6" hidden>
+        <p> 1. One-Time Transactions: Payments (such as bills, transfers, or split settlements) are final once processed. Refunds apply only if an error is caused by Nafini or its banking partners.
+        <br>2.Disputes: Users may request a refund review by emailing billing@nafini.com within 14 days of the transaction.
+        <br>3. Processing Time: Refund timelines depend on banks and payment processors, but Nafini will assist in tracking the process.
+        <br>4. No Liability for External Errors: Nafini is not responsible for failed or delayed refunds due to user error (e.g., wrong account details) or issues caused by external payment providers.</p>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q7" aria-expanded="false" aria-controls="a7" role="tab">
+          7. Privacy & Data Protection
+        </button>
+      </h3>
+      <div id="a7" class="faq__panel" role="region" aria-labelledby="q7" hidden>
+        <p> 1. Your privacy matters. Our Privacy Policy explains how we collect, use, and protect your information.
+        <br>2. By using Nafini, you consent to our data practices.</p>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q8" aria-expanded="false" aria-controls="a8" role="tab">
+          8. Intellectual Property
+        </button>
+      </h3>
+      <div id="a8" class="faq__panel" role="region" aria-labelledby="q8" hidden>
+        <p> 1. All content, branding, and software related to Nafini are owned by us.
+        <br>2. You may not copy, modify, distribute, or reverse-engineer Nafini’s content or systems.</p>
+      </div>
+    </article>
+
+    
+    <!-- 9 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q9" aria-expanded="false" aria-controls="a9" role="tab">
+          9. Third-Party Services
+        </button>
+      </h3>
+      <div id="a9" class="faq__panel" role="region" aria-labelledby="q9" hidden>
+        <p> 1. Nafini may integrate with external apps, platforms, or financial services.
+        <br>2. We are not responsible for the content, actions, or policies of these third parties.</p>
+      </div>
+    </article>
+
+    <!-- 10 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q10" aria-expanded="false" aria-controls="a9" role="tab">
+          10. Disclaimers
+        </button>
+      </h3>
+      <div id="a10" class="faq__panel" role="region" aria-labelledby="q10" hidden>
+        <p> 1.Nafini provides services “as is” and “as available.”
+        <br>2. We do not guarantee error-free, uninterrupted, or always-available service.
+        <br>3. Nafini does not provide financial, legal, medical, or professional advice.</p>
+      </div>
+    </article>
+
+    <!-- 11 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q11" aria-expanded="false" aria-controls="a11" role="tab">
+          11. Limitation of Liability
+        </button>
+      </h3>
+      <div id="a11" class="faq__panel" role="region" aria-labelledby="q11" hidden>
+        <p>To the maximum extent permitted by law:
+        <br> 1.Nafini is not liable for indirect, incidental, or consequential damages.
+        <br> 2. Our total liability for any claim is limited to the amount you paid (if any) in the 12 months before the claim.</p>
+      </div>
+    </article>
+
+    <!-- 12 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q12" aria-expanded="false" aria-controls="a12" role="tab">
+          12. Termination
+        </button>
+      </h3>
+      <div id="a12" class="faq__panel" role="region" aria-labelledby="q12" hidden>
+        <p> 1. We may suspend or terminate your access if you violate these Terms or misuse the Services.
+        <br>2. You may stop using Nafini at any time.</p>
+      </div>
+    </article>
+
+    <!-- 13 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q13" aria-expanded="false" aria-controls="a13" role="tab">
+          13. Changes to Terms
+        </button>
+      </h3>
+      <div id="a13" class="faq__panel" role="region" aria-labelledby="q13" hidden>
+        <p> 1.We may update these Terms periodically.
+        <br>2. If changes are significant, we will notify you (e.g., via email or app notification).
+        <br>3. Continued use of Nafini means you accept the updated Terms.</p>
+      </div>
+    </article>
+
+    <!-- 14 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q14" aria-expanded="false" aria-controls="a14" role="tab">
+          14. Governing Law
+        </button>
+      </h3>
+      <div id="a14" class="faq__panel" role="region" aria-labelledby="q14" hidden>
+        <p> These Terms are governed by the laws of Nigeria (or the jurisdiction where Nafini operates). Any disputes will be resolved in the courts of that jurisdiction.</p>
+      </div>
+    </article>
+
+    <!-- 15 -->
+    <article class="faq__item">
+      <h3>
+        <button class="faq__trigger" id="q15" aria-expanded="false" aria-controls="a15" role="tab">
+          15. Contact Us
+        </button>
+      </h3>
+      <div id="a15" class="faq__panel" role="region" aria-labelledby="q15" hidden>
+        <p>For questions, support, or concerns:
+        <br>📧 ask@nafini.com
+        <br>🌍 www.nafini.com</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== FAQ LOGIC (JS) ===== -->
+<script>
+  (function(){
+    const triggers = document.querySelectorAll('.faq__trigger');
+
+    function closeAll(except){
+      triggers.forEach(btn=>{
+        if(btn !== except){
+          btn.setAttribute('aria-expanded','false');
+          const panelId = btn.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId);
+          if(panel){
+            panel.hidden = true;
+            panel.setAttribute('aria-hidden','true');
+          }
+        }
+      });
+    }
+
+    triggers.forEach(btn=>{
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      // init state
+      panel.setAttribute('aria-hidden','true');
+
+      btn.addEventListener('click', ()=>{
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        // accordion behavior: open this, close others
+        closeAll(btn);
+        if(isOpen){
+          // closing current
+          btn.setAttribute('aria-expanded','false');
+          panel.hidden = true;
+          panel.setAttribute('aria-hidden','true');
+        } else {
+          // opening current
+          btn.setAttribute('aria-expanded','true');
+          panel.hidden = false;
+          panel.setAttribute('aria-hidden','false');
+          // optional: scroll the opened question into view on small screens
+          // panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+        }
+      });
+
+      // keyboard support: Enter/Space handled by button natively
+    });
+  })();
+</script>
+
+<footer class="rjf">
+  <div class="rjf-wrap">
+    <div class="rjf-top">
+      <div class="rjf-brand">
+        <span class="rjf-logo">Nafini</span>
+        <small class="rjf-tag">Here to support you</small>
+      </div>
+
+      <div class="rjf-actions">
+        <a class="rjf-btn" href="https://wa.me/2348152029380?text=Hello%20Nafini">Chat Now</a>
+        <a href="terms.html"><button class="rjf-btn rjf-menu" aria-label="menu"><i></i></button></a>
+      </div>
+    </div>
+
+    <div class="rjf-grid">
+      <div class="rjf-left">
+        <p class="rjf-lead">Assistant always <br/>by your side.</p>
+        <a class="rjf-btn rjf-cta" href="https://wa.me/2348152029380?text=Hello%20Nafini">Chat Nafini Now</a>
+        <a class="rjf-news" href="The contact us.html">Get in Touch</a>
+      </div>
+
+      <nav class="rjf-links" aria-label="Footer">
+        <div class="rjf-col">
+          <h4 class="rjf-h">Menu</h4>
+          <a href="index.html">Home</a>
+          <a href="the about.html">About</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="The contact us.html">Contact</a>
+        </div>
+        <div class="rjf-col">
+          <h4 class="rjf-h rjf-top">Social</h4>
+          <a href="https://www.twitter.com/asknafini/">Twitter ↗</a>
+          <a href="https://www.instagram.com/asknafini/">Instagram ↗</a>
+          <a href="https://www.tiktok.com/@asknafini">TikTok ↗</a>
+          <span class="rjf-legal">©2025 Nafini</span>
+        </div>
+      </nav>
+    </div>
+
+    <div class="rjf-wordmark" aria-hidden="true">Nafini</div>
+  </div>
+</footer>
+
+
+
+
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nafini</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="icon" type="png" href="images/favicon.png">
+</head>
+<body>
+
+  <!-- Transparent header that blends with the hero -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html">
+        <span class="brand-name"><img src="images/nafini over lay.png" alt="nafini logo"></span>
+      </a>
+
+      <!-- Hamburger (CSS-only) -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+      <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+
+      <!-- Menu -->
+      <ul class="menu">
+        <!-- PRODUCTS -->
+        <li class="has-submenu">
+          <!-- Desktop trigger (hover) -->
+          <a href="#" class="toplink">Products <i class="arrow"></i></a>
+          <!-- Mobile trigger (tap-to-open) -->
+          <input type="checkbox" id="sub-products" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-products" class="sub-trigger">Products <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Products">
+            <a href="NFB.html">Nafini for Business</a>
+            <a href="NFM.html">Nafini for me</a>
+            
+          </div>
+        </li>
+
+        <!-- COMPANY -->
+        <li class="has-submenu">
+          <a href="#" class="toplink">Company <i class="arrow"></i></a>
+          <input type="checkbox" id="sub-company" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-company" class="sub-trigger">Company <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Company">
+            <a href="the about.html">About</a>
+            <a href="terms.html">Terms of Use</a>
+            <a href="press.html">Press</a>
+          </div>
+        </li>
+
+        <!-- SUPPORT -->
+        <li class="has-submenu">
+          <a href="#" class="toplink">Support <i class="arrow"></i></a>
+          <input type="checkbox" id="sub-support" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-support" class="sub-trigger">Support <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Support">
+            <a href="The Faqs.html">FAQS</a>
+            <a href="The contact us.html">Contact us</a>
+          </div>
+        </li>
+
+        <!-- COMMUNITY -->
+        <li class="has-submenu">
+          <a href="#" class="toplink">Community <i class="arrow"></i></a>
+          <input type="checkbox" id="sub-community" class="sub-toggle" aria-hidden="true" />
+          <label for="sub-community" class="sub-trigger">Community <i class="arrow"></i></label>
+
+          <div class="submenu" role="menu" aria-label="Community">
+            <a href="Influencer.html">Influencer</a>
+            <a href="The ambassador.html">Ambassadors</a>
+          </div>
+        </li>
+
+
+      </ul>
+
+
+      <a class="btn btn-pill" id="getstarted" href="https://wa.me/2348152029380?text=Hello%20Nafini">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- Hero with exact gradient image -->
+  <section class="heroNFB">
+    <div class="container hero-inner">
+
+          <img src="video/to the moon.gif" id="gif2" alt="Butterfly animation">
+
+      <!-- Individual view -->
+      <div class="pagesheadline" >
+        <h1>Your Business.<br>Manager In<br> Your Pocket.</h1>
+        <br>
+        <p class="sub">From payroll and vendor payouts to all things admin and reminders — Nafini keeps your team moving.</p>
+        <div class="center-cta">
+          <a href="https://wa.me/2348152029380?text=Hello%20Nafini"><button class="btn light">Get Started</button></a>
+        </div>
+      </div>
+
+
+      <!-- Floating cards (demo images, swap with your assets) -->
+      <div class="cards"  >
+        
+        <figure class="card card-center">
+          <img src="images/nafini business woman.png" alt="happy face of a lady" >
+        </figure>
+        
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+
+  <div style="margin-top: 200px;">
+  This content is pushed down by 50px
+ </div>
+  <!-- ===================== FEATURES ( EXACT LAYOUT ) ===================== -->
+  
+  <section class="features-two">
+  <div class="container">
+
+    <!-- Card 1 -->
+    <article class="feature">
+      <div class="feature__copy">
+        <h1 class="feature__title" id="">Split Payments,<br> Stress-Free<br>Easy Reconcillation</h1>
+        <p class="feature__text">
+          Nafini automatically separates and tracks every incoming and outgoing payment — from sales revenue to expenses — so reconciliation happens quietly in the background, giving you a clean and accurate picture of your accounts without hours of manual work.
+        </p>
+        <a class="btn" id="featurebtn" href="https://wa.me/2348152029380?text=Hello%20Nafini">Start Now</a>
+      </div>
+      <div class="feature__media">
+        <div class="media-card">
+          <img src="images/Nafini how can i help you today_.jpg" alt="Nafini money screen">
+        </div>
+      </div>
+    </article>
+    
+
+    <!-- Card 2 (image first on desktop) -->
+    <article class="feature feature--alt">
+      
+      <div class="feature__copy">
+        <h1 class="feature__title">See Your  <br>Cash Flow  <br>Clearly</h1>
+        <p class="feature__text">
+          With daily updates, simple statements, and real-time balance checks delivered straight to WhatsApp, Nafini gives you a clear view of what’s coming in and going out, helping you make smarter business decisions without getting buried in messy spreadsheets or complex software.
+        <br>
+        <br>
+          <a class="btn" id="featurebtn" href="https://wa.me/2348152029380?text=Hello%20Nafini">Get Started</a>
+      </div>
+
+      <div class="feature__media" id="featurecard2">
+        <div class="media-card">
+          <img src="images/nafini business woman 2.jpg" alt="Nafini reminders screen">
+        </div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="feature__copy">
+        <h1 class="feature__title" id="">Handle <br>Office Bills <br>Easily</h1>
+        <p class="feature__text">
+          From electricity and internet to airtime, data, and TV subscriptions, Nafini makes it effortless to pay and manage recurring office expenses in seconds, ensuring smooth day-to-day operations without interruptions or last-minute rushes.
+      </div>
+      <div class="feature__media">
+        <div class="media-card">
+          <img src="images/nafini home page airtime .png" alt="Nafini money screen">
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 (image first on desktop) -->
+    <article class="feature feature--alt">
+      
+      <div class="feature__copy">
+        <h1 class="feature__title">Business<br>Payments<br>Made Easy.</h1>
+        <p class="feature__text">
+          Whether it’s staff salaries, supplier fees, or service retainers, Nafini lets you schedule payments in advance and process them instantly, so your vendors and team members are always paid on time and you never have to deal with late-payment reminders or damaged relationships.
+      </div>
+
+      <div class="feature__media" id="featurecard2">
+        <div class="media-card">
+          <img src="images/nafini vendor.jpg" alt="Man holding phone">
+        </div>
+      </div>
+    </article>
+
+  </div>
+ </section>
+
+<footer class="rjf">
+  <div class="rjf-wrap">
+    <div class="rjf-top">
+      <div class="rjf-brand">
+        <span class="rjf-logo">Nafini</span>
+        <small class="rjf-tag">Here to support you</small>
+      </div>
+
+      <div class="rjf-actions">
+        <a class="rjf-btn" href="#">Chat Now</a>
+        <a href="NFB.html"><button class="rjf-btn rjf-menu" aria-label="menu"><i></i></button></a>
+      </div>
+    </div>
+
+    <div class="rjf-grid">
+      <div class="rjf-left">
+        <p class="rjf-lead">Assistant always <br/>by your side.</p>
+        <a class="rjf-btn rjf-cta" href="https://wa.me/2348152029380?text=Hello%20Nafini">Chat Nafini Now</a>
+        <a class="rjf-news" href="The contact us.html">Get in Touch</a>
+      </div>
+
+      <nav class="rjf-links" aria-label="Footer">
+        <div class="rjf-col">
+          <h4 class="rjf-h">Menu</h4>
+          <a href="index.html">Home</a>
+          <a href="the about.html">About</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="The contact us.html">Contact</a>
+        </div>
+        <div class="rjf-col">
+          <h4 class="rjf-h rjf-top">Social</h4>
+          <a href="https://www.twitter.com/asknafini/">Twitter ↗</a>
+          <a href="https://www.instagram.com/asknafini/">Instagram ↗</a>
+          <a href="https://www.tiktok.com/@asknafini">TikTok ↗</a>
+          <span class="rjf-legal">©2025 Nafini</span>
+        </div>
+      </nav>
+    </div>
+
+    <div class="rjf-wordmark" aria-hidden="true">Nafini</div>
+  </div>
+</footer>
+
+
+
+</html>
