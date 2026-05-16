@@ -183,6 +183,31 @@ nav .nav-hamburger { display: flex !important; }
 .rjf-legal-list a { font-size: 12.5px; color: rgba(255,255,255,0.55); text-decoration: none; }
 .rjf-legal-list a:hover { color: #fff; }
 </style>
+<style>
+.rjf-tou { position: relative; }
+.rjf-tou-trigger { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.rjf-tou-trigger span { font-size: 10px; opacity: 0.7; transition: transform 0.2s; }
+.rjf-tou:hover .rjf-tou-trigger span { transform: rotate(180deg); }
+.rjf-tou-menu {
+  position: absolute; left: 0; bottom: 100%;
+  min-width: 220px; padding: 10px 0;
+  background: #111; border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  display: flex; flex-direction: column;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
+  z-index: 50;
+}
+.rjf-tou:hover .rjf-tou-menu,
+.rjf-tou:focus-within .rjf-tou-menu { opacity: 1; visibility: visible; transform: translateY(-6px); }
+.rjf-tou-menu a { padding: 8px 16px; font-size: 13px; color: rgba(255,255,255,0.7) !important; }
+.rjf-tou-menu a:hover { background: rgba(200,230,58,0.12); color: #fff !important; }
+@media (max-width: 768px) {
+  .rjf-tou-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: transparent; border: 0; padding: 6px 0 4px 12px; border-left: 1px solid rgba(255,255,255,0.12); }
+  .rjf-tou-trigger span { display: none; }
+}
+</style>
 </head>
 <body>
 
@@ -533,7 +558,25 @@ nav .nav-hamburger { display: flex !important; }
         <h4>Legal</h4>
         <a href="privacy.html">Privacy Policy</a>
         <a href="cookie-policy.html">Cookie Policy</a>
-        <a href="terms-of-use.html">Terms of Use</a>
+        <div class="rjf-tou">
+          <a href="terms-of-use.html" class="rjf-tou-trigger">Terms of Use <span>▾</span></a>
+          <div class="rjf-tou-menu">
+            <a href="terms-of-use.html">Terms of Use</a>
+            <a href="refund-policy.html">Refund Policy</a>
+            <a href="disclaimer.html">Disclaimer</a>
+            <a href="acceptable-use.html">Acceptable Use</a>
+            <a href="complaints.html">Complaints &amp; Disputes</a>
+            <a href="ndpa-notice.html">NDPA Notice</a>
+            <a href="aml-kyc.html">AML / KYC</a>
+            <a href="fair-lending.html">Fair Lending</a>
+            <a href="data-retention.html">Data Retention</a>
+            <a href="sla.html">Service Level Agreement</a>
+            <a href="info-security.html">Information Security</a>
+            <a href="anti-bribery.html">Anti-Bribery</a>
+            <a href="whistleblower.html">Whistleblower</a>
+            <a href="accessibility.html">Accessibility</a>
+          </div>
+        </div>
         <a href="privacy.html">Privacy Policy</a>
       </div>
       <div class="rjf-col">
