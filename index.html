@@ -224,6 +224,47 @@ nav { height: 64px !important; }
   .nav-logo img, .logo img, .rjf-logo img { height: 16px !important; }
 }
 </style>
+<style>
+/* Hero: always stack video on top, text underneath — no overlay */
+.hero {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 64px 0 0 !important;
+  background: #fff !important;
+  position: relative;
+}
+.hero-video {
+  position: relative !important;
+  width: 100% !important;
+  height: 70vh !important;
+  max-height: 720px;
+  min-height: 360px;
+  object-fit: cover !important;
+  display: block;
+}
+.hero-spot { display: none !important; }
+.hero::after { display: none !important; }
+.hero-content {
+  position: relative !important;
+  z-index: 3;
+  padding: 48px 32px 64px !important;
+  max-width: 1100px !important;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  background: #fff !important;
+}
+.hero-content h1 { color: #0a0a0a !important; }
+.hero-sub, .hero-p { color: rgba(0,0,0,0.7) !important; }
+.hero-fine { color: rgba(0,0,0,0.55) !important; }
+@media (max-width: 768px) {
+  .hero { padding: 56px 0 0 !important; }
+  .hero-video { height: 56vh !important; min-height: 280px; }
+  .hero-content { padding: 28px 20px 40px !important; }
+}
+</style>
 </head>
 <body>
 
