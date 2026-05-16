@@ -72,6 +72,21 @@
 }
 .safe-card { isolation: isolate; }
 </style>
+<style>
+.faq-list .faq-item:nth-child(n+4) { display: none; }
+.faq-list.expanded .faq-item:nth-child(n+4) { display: block; }
+.faq-more {
+  margin: 28px 0 0; display: inline-flex; align-items: center; gap: 8px;
+  background: #0a0a0a; color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 700;
+  padding: 12px 22px; border-radius: 999px;
+  border: 0; cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.faq-more:hover { background: #c8e63a; color: #0a0a0a; }
+.faq-more::after { content: '↓'; }
+.expanded + .faq-more::after, .faq-list.expanded ~ .faq-more::after { content: '↑'; }
+</style>
 </head>
 <body>
 
@@ -241,7 +256,7 @@
           </div>
         </div>
       </div>
-      <div class="faq-list reveal d1">
+      <div class="faq-list reveal d1" id="faqList">
         <div class="faq-item">
           <div class="faq-q open" onclick="toggleFaq(this)">Do I need to download a new app?<div class="faq-icon">+</div></div>
           <div class="faq-a open">No. Nafini lives entirely inside WhatsApp. You use it just like you are texting a friend.</div>
@@ -269,7 +284,7 @@
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">What if someone gets access to my phone?<div class="faq-icon">+</div></div>
           <div class="faq-a">You can enable WhatsApp's built-in Chat Lock on your Nafini conversation — it requires Face ID, fingerprint, or PIN every time the chat is opened, so even someone holding your unlocked phone can't see it. On top of that, every sensitive action (payouts, transfers, withdrawals) needs a one-time PIN you set up. If your phone is ever lost or stolen, message us from any other device to freeze your account instantly.</div>
-        </div>
+        </div><button type="button" class="faq-more" onclick="toggleFaqMore(this)" id="faqMoreBtn">Read more</button>
       </div>
     </div>
   </div>
@@ -971,6 +986,14 @@ document.querySelectorAll('.t-dot').forEach(d => {
     });
   });
 })();
+</script>
+<script>
+function toggleFaqMore(btn){
+  var list = document.getElementById('faqList');
+  if(!list) return;
+  list.classList.toggle('expanded');
+  btn.textContent = list.classList.contains('expanded') ? 'Show less' : 'Read more';
+}
 </script>
 </body>
 </html>
