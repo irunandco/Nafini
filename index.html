@@ -203,9 +203,12 @@ nav .nav-hamburger { display: flex !important; }
 .rjf-tou:focus-within .rjf-tou-menu { opacity: 1; visibility: visible; transform: translateY(-6px); }
 .rjf-tou-menu a { padding: 8px 16px; font-size: 13px; color: rgba(255,255,255,0.7) !important; }
 .rjf-tou-menu a:hover { background: rgba(200,230,58,0.12); color: #fff !important; }
-@media (max-width: 768px) {
-  .rjf-tou-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: transparent; border: 0; padding: 6px 0 4px 12px; border-left: 1px solid rgba(255,255,255,0.12); }
-  .rjf-tou-trigger span { display: none; }
+@media (max-width: 1024px) {
+  .rjf-tou-menu { position: static; transform: none !important; box-shadow: none; background: transparent; border: 0; padding: 0 0 0 12px; border-left: 1px solid rgba(255,255,255,0.12); }
+  .rjf-tou { transition: max-height 0.25s ease; }
+  .rjf-tou-menu { max-height: 0; overflow: hidden; opacity: 1; visibility: visible; padding-top: 0; padding-bottom: 0; }
+  .rjf-tou.open .rjf-tou-menu { max-height: 800px; padding-top: 6px; padding-bottom: 4px; }
+  .rjf-tou.open .rjf-tou-trigger span { transform: rotate(180deg); }
 }
 </style>
 </head>
@@ -1168,6 +1171,21 @@ function toggleFaqMore(btn){
   }
   requestAnimationFrame(sample);
 })();
+</script>
+<script>
+document.addEventListener('click', function(e){
+  var tou = document.querySelector('.rjf-tou');
+  if (!tou) return;
+  var trigger = tou.querySelector('.rjf-tou-trigger');
+  if (window.matchMedia('(max-width: 1024px)').matches) {
+    if (trigger && trigger.contains(e.target)) {
+      e.preventDefault();
+      tou.classList.toggle('open');
+    } else if (!tou.contains(e.target)) {
+      tou.classList.remove('open');
+    }
+  }
+});
 </script>
 </body>
 </html>
