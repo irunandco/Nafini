@@ -114,6 +114,17 @@
   nav .nav-hamburger { display: flex !important; }
 }
 </style>
+<style>
+@media (max-width: 768px) {
+  .hero { padding-top: 56px !important; }
+  .hero-video { background: #fff !important; }
+  .hero-content { padding: 22px 20px 36px !important; }
+  /* Hide native playback button overlay (best effort across browsers) */
+  video::-webkit-media-controls-overlay-play-button,
+  video::-webkit-media-controls-start-playback-button,
+  video::-internal-media-controls-overlay-cast-button { display: none !important; -webkit-appearance: none !important; }
+}
+</style>
 </head>
 <body>
 
@@ -148,7 +159,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noplaybackrate" oncontextmenu="return false">
+  <video class="hero-video" poster="video/hero-poster.jpg" webkit-playsinline x5-playsinline x-webkit-airplay="allow" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload nofullscreen noplaybackrate" oncontextmenu="return false">
     <source src="video/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-spot"></div>
