@@ -337,6 +337,106 @@ section, footer, .logo-strip, .credit-quiz { margin: 0 !important; }
 .hero { background-image: url('images/hero-poster.jpg?v=1779131003') !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; }
 .hero-video { z-index: 0 !important; }
 </style>
+
+<style id="hide-payment-gradient">
+.payment-section { background: #fff !important; }
+.payment-section::before, .payment-section::after { display: none !important; }
+.payment-section .scroll-aura { display: none !important; }
+</style>
+
+<style id="kill-all-gradients">
+/* Strip every gradient + decorative glow across the site */
+.gradient-zone,
+.gradient-zone .fee-section,
+.gradient-zone .articles-section,
+.gradient-zone .faq-section,
+.faq-section,
+.credit-quiz,
+.payment-section,
+.coach-section,
+.testi-section,
+.cta-section,
+.op-section,
+.fee-section,
+.articles-section,
+.logo-strip,
+.rjf,
+.hero,
+.hero-bg,
+section,
+footer { background-image: none !important; }
+
+/* Flat fills only */
+.fee-section { background-color: #fff !important; }
+.coach-section { background-color: #fff !important; }
+.faq-section, .gradient-zone .faq-section { background-color: #fff !important; }
+.credit-quiz { background-color: #fff !important; }
+.payment-section { background-color: #fff !important; }
+.op-section { background-color: #fff !important; }
+.testi-section { background-color: #000 !important; }
+.cta-section { background-color: #000 !important; }
+.rjf { background-color: #000 !important; }
+.logo-strip { background-color: #faf9f5 !important; }
+.hero { background-color: #fff !important; }
+
+/* Kill every radial-gradient/glow pseudo element */
+.gradient-zone::before, .gradient-zone::after, .gradient-zone > .gz-glow,
+.payment-section::before, .payment-section::after,
+.coach-section::before, .coach-section::after,
+.testi-section::before, .testi-section::after,
+.op-section::before, .op-section::after,
+.fee-section::before, .fee-section::after,
+.faq-section::before, .faq-section::after,
+.credit-quiz::before, .credit-quiz::after,
+.cta-section::before, .cta-section::after,
+.scroll-aura, .gz-glow, .hero-spot { display: none !important; }
+</style>
+
+<style id="op-legible-accent">
+.op-h2 em { color: #0a0a0a !important; position: relative; }
+.op-h2 em::after { content: ''; display: block; height: 6px; background: var(--lime); margin-top: -4px; border-radius: 3px; opacity: 0.7; }
+</style>
+
+
+<style id="padlock-clean-bigger">
+.safe-card .safe-ico { 
+  width: 280px !important; 
+  height: 280px !important; 
+  margin: 0 auto 36px !important; 
+  display: block !important;
+  object-fit: contain !important;
+  mix-blend-mode: screen !important;
+  background: transparent !important;
+  filter: sepia(1) hue-rotate(35deg) saturate(3.5) brightness(1.05) contrast(1.4) !important;
+}
+@media (max-width: 768px) {
+  .safe-card .safe-ico { width: 200px !important; height: 200px !important; margin-bottom: 24px !important; }
+}
+</style>
+
+<style id="seal-gaps">
+/* Seal every possible gap between sections so the body background never peeks through */
+html, body { margin: 0 !important; padding: 0 !important; }
+* { margin-bottom: 0; }
+section, footer, header, nav, aside, .logo-strip, .credit-quiz, .gradient-zone, .op-section, .payment-section, .fee-section, .articles-section, .faq-section, .coach-section, .cta-section, .testi-section { margin: 0 !important; }
+section + section, section + footer, section + div, div + section, footer { margin-top: 0 !important; }
+section, .logo-strip { display: block; }
+/* Remove any spurious borders that could create lines */
+section { border: 0 !important; }
+</style>
+
+<style id="seal-gaps-v2">
+/* Aggressive gap seal */
+html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; }
+body > * { margin: 0 !important; }
+section, footer, header, nav, aside, div.logo-strip { display: block !important; margin: 0 !important; border: 0 !important; }
+body > section, body > footer, body > div { vertical-align: top; }
+/* Remove top space some sections may carry */
+body > section:not(:first-of-type), body > div:not(:first-of-type), body > footer { margin-top: 0 !important; }
+/* Hide any stray whitespace text nodes by making body a flex column */
+body { display: flex !important; flex-direction: column !important; }
+body > nav { flex-shrink: 0; }
+</style>
 </head>
 <body>
 
@@ -375,7 +475,7 @@ nav .nav-logo {
   width: auto !important;
   height: auto !important;
 }
-nav .nav-logo img { height: 20px !important; width: auto !important; display: block !important; filter: none !important; }
+nav .nav-logo img { height: 18px !important; width: auto !important; display: block !important; filter: none !important; }
 nav .nav-left > a, nav .nav-left > .nav-dropdown > a { color: #0a0a0a !important; }
 nav .nav-left > a:hover, nav .nav-left > .nav-dropdown > a:hover { color: #000 !important; }
 nav .nav-left {
@@ -641,82 +741,33 @@ nav.scrolled .nav-hamburger span { background: #0a0a0a !important; }
 
 <!-- HOW IT WORKS -->
 <style>
-.op-section { background: #fff; color: #0a0a0a; padding: 110px 0 130px; position: relative; overflow: hidden; }
-.op-section::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 900px; height: 500px; background: radial-gradient(ellipse, rgba(200,230,58,0.25), transparent 70%); filter: blur(60px); pointer-events: none; }
-.op-wrap { max-width: 1240px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; text-align: center; }
-
-.op-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--lime-dark); margin-bottom: 24px; }
-.op-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--lime-dark); }
-.op-h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(42px, 5.5vw, 80px); font-weight: 900; line-height: 1; letter-spacing: -0.04em; color: #0a0a0a; margin: 0 auto 22px; max-width: 880px; }
-.op-h2 em { font-style: normal; color: var(--lime-dark); }
-.op-lede { font-size: 18px; line-height: 1.6; color: rgba(0,0,0,0.6); max-width: 620px; margin: 0 auto 56px; }
-
-/* Video stage — wide cinematic strip integrated into the section */
-.op-stage { position: relative; border-radius: 32px; overflow: hidden; aspect-ratio: 16/8; background: #050505; box-shadow: 0 40px 100px rgba(0,0,0,0.5); margin-bottom: 56px; }
+.op-section { background: #fff; color: #0a0a0a; padding: 120px 0 140px; }
+.op-wrap { max-width: 980px; margin: 0 auto; padding: 0 32px; text-align: center; }
+.op-eyebrow { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(0,0,0,0.45); margin-bottom: 24px; }
+.op-h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(40px, 5vw, 64px); font-weight: 800; line-height: 1.04; letter-spacing: -0.035em; color: #0a0a0a; margin: 0 auto 18px; max-width: 700px; }
+.op-lede { font-size: 17px; line-height: 1.6; color: rgba(0,0,0,0.55); max-width: 540px; margin: 0 auto 56px; }
+.op-stage { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 16/9; background: #050505; margin-bottom: 48px; }
 .op-stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.op-stage::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%); pointer-events: none; }
-.op-stage-badge { position: absolute; top: 22px; left: 24px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 8px 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
-.op-stage-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 10px rgba(200,230,58,0.7); }
-
-/* Three inline steps as compact rows */
-.op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.08); text-align: left; }
-.op-step { padding: 32px 28px 0; border-right: 1px solid rgba(0,0,0,0.08); }
-.op-step:last-child { border-right: 0; }
-.op-step-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; color: var(--lime-dark); margin-bottom: 14px; }
-.op-step-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800; color: #0a0a0a; margin-bottom: 8px; line-height: 1.2; letter-spacing: -0.02em; }
-.op-step-desc { font-size: 14.5px; line-height: 1.55; color: rgba(0,0,0,0.55); }
-
-.op-cta-row { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 48px; flex-wrap: wrap; }
-.op-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--lime); color: #0a0a0a; font-weight: 700; font-size: 15px; padding: 16px 32px; border-radius: 999px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
-.op-cta:hover { background: #0a0a0a; color: #fff; transform: translateY(-2px); }
-.op-meta { font-size: 13px; color: rgba(0,0,0,0.45); font-weight: 500; }
-
+.op-cta { display: inline-flex; align-items: center; gap: 8px; background: #0a0a0a; color: #fff; font-weight: 700; font-size: 15px; padding: 16px 32px; border-radius: 999px; text-decoration: none; transition: background 0.2s; }
+.op-cta:hover { background: var(--lime); color: #0a0a0a; }
 @media (max-width: 900px) {
   .op-section { padding: 70px 0 80px; }
-  .op-stage { aspect-ratio: 4/5; margin-bottom: 36px; }
-  .op-grid { grid-template-columns: 1fr; }
-  .op-step { padding: 24px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .op-step:last-child { border-bottom: 0; }
-  .op-cta-row { flex-direction: column; gap: 14px; margin-top: 36px; }
+  .op-wrap { padding: 0 22px; }
+  .op-stage { aspect-ratio: 4/5; margin-bottom: 32px; }
+  .op-lede { margin-bottom: 36px; }
 }
 </style>
 <section class="op-section" id="one-place">
   <div class="op-wrap">
-
     <div class="op-eyebrow">One Place</div>
-    <h2 class="op-h2">Your business, <em>all in one place.</em></h2>
-    <p class="op-lede">You don't need new apps. If you can chat, you can manage — sales, splits and vendor payouts straight from WhatsApp.</p>
-
+    <h2 class="op-h2">Your business, all in one place.</h2>
+    <p class="op-lede">Sales, splits and vendor payouts — straight from WhatsApp.</p>
     <div class="op-stage">
-      <div class="op-stage-badge">Live on WhatsApp</div>
       <video autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="video/nafiniSalesToCoins.mp4" type="video/mp4">
       </video>
     </div>
-
-    <div class="op-grid">
-      <div class="op-step">
-        <div class="op-step-num">01 — Track</div>
-        <div class="op-step-title">Every sale, auto-logged.</div>
-        <div class="op-step-desc">POS, transfers, cash — captured the moment money moves.</div>
-      </div>
-      <div class="op-step">
-        <div class="op-step-num">02 — Split</div>
-        <div class="op-step-title">Funds, routed for you.</div>
-        <div class="op-step-desc">Savings, payroll, vendors — Nafini sends the right share to each.</div>
-      </div>
-      <div class="op-step">
-        <div class="op-step-num">03 — See</div>
-        <div class="op-step-title">One chat, full picture.</div>
-        <div class="op-step-desc">Bills, reminders and monthly reports — delivered to your chat.</div>
-      </div>
-    </div>
-
-    <div class="op-cta-row">
-      <a class="op-cta" href="https://wa.me/2348152029380?text=Hello%20Nafini">Start free →</a>
-      <span class="op-meta">Free to start · No credit card · Live on WhatsApp</span>
-    </div>
-
+    <a class="op-cta" href="https://wa.me/2348152029380?text=Hello%20Nafini">Start free →</a>
   </div>
 </section>
 
@@ -954,8 +1005,8 @@ nav.scrolled .nav-hamburger span { background: #0a0a0a !important; }
       <svg viewBox="0 0 24 24" fill="none" width="30" height="30"><path d="M8 5v14l11-7z" fill="#0a0a0a"/></svg>
     </button>
 
-    <div class="coach-meta">Adaeze N., Owner at Adaeze Fabrics</div>
-    <div class="coach-quote">"The coaching session was seamless. Within 24 hours we had a clear plan to restock inventory and scale. It felt like a true growth partnership."</div>
+    <div class="coach-meta">Business Coaching · Book a 1-on-1 video call</div>
+    <div class="coach-quote">Don't do business alone. Get answers to the mind-boggling questions keeping you stuck — from real coaches who've built and scaled Nigerian SMEs.</div>
     <div class="coach-time">0:18 / 0:25</div>
     <div class="coach-controls">
       <button class="coach-control-btn" aria-label="Mute"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z"/></svg></button>
