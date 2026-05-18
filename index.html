@@ -338,6 +338,7 @@ nav { height: 64px !important; }
 /* Responsive hero — overlay design (video full-bleed, text bottom-left) across all breakpoints */
 .hero { min-height: 100vh !important; height: 100vh !important; padding: 0 !important; display: block !important; background: #000 !important; position: relative !important; overflow: hidden !important; }
 .hero-video { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-height: none !important; min-height: 0 !important; object-fit: cover !important; }
+.hero::before { content: '' !important; position: absolute !important; inset: 0 !important; z-index: 2 !important; background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.75) 100%) !important; pointer-events: none !important; display: block !important; }
 .hero-content { position: absolute !important; left: 48px !important; right: auto !important; bottom: 72px !important; top: auto !important; max-width: 540px !important; padding: 0 !important; background: transparent !important; text-align: left !important; z-index: 3 !important; }
 .hero-content h1 { color: #fff !important; font-size: clamp(40px, 5.5vw, 72px) !important; line-height: 1.02 !important; letter-spacing: -0.03em !important; margin: 0 0 18px !important; }
 .hero-content .hero-sub, .hero-content .hero-p { color: rgba(255,255,255,0.85) !important; font-size: clamp(14px, 1.2vw, 17px) !important; line-height: 1.55 !important; margin: 0 0 24px !important; max-width: 480px !important; }
