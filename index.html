@@ -233,47 +233,7 @@ nav { height: 64px !important; }
   .nav-logo img, .logo img, .rjf-logo img { height: 16px !important; }
 }
 </style>
-<style>
-/* Hero: always stack video on top, text underneath — no overlay */
-.hero {
-  display: flex !important;
-  flex-direction: column !important;
-  min-height: 0 !important;
-  height: auto !important;
-  padding: 64px 0 0 !important;
-  background: #fff !important;
-  position: relative;
-}
-.hero-video {
-  position: relative !important;
-  width: 100% !important;
-  height: 70vh !important;
-  max-height: 720px;
-  min-height: 360px;
-  object-fit: cover !important;
-  display: block;
-}
-.hero-spot { display: none !important; }
-.hero::after { display: none !important; }
-.hero-content {
-  position: relative !important;
-  z-index: 3;
-  padding: 48px 32px 64px !important;
-  max-width: 1100px !important;
-  width: 100%;
-  margin: 0 auto;
-  text-align: left;
-  background: #fff !important;
-}
-.hero-content h1 { color: #0a0a0a !important; }
-.hero-sub, .hero-p { color: rgba(0,0,0,0.7) !important; }
-.hero-fine { color: rgba(0,0,0,0.55) !important; }
-@media (max-width: 768px) {
-  .hero { padding: 56px 0 0 !important; }
-  .hero-video { height: 56vh !important; min-height: 280px; }
-  .hero-content { padding: 28px 20px 40px !important; }
-}
-</style>
+
 <style>
 /* Mobile hero: full-bleed video as background, text overlaid below (within the same section) */
 @media (max-width: 768px) {
@@ -373,6 +333,37 @@ nav { height: 64px !important; }
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
 })();
 </script>
+
+<style>
+/* Responsive hero — overlay design (video full-bleed, text bottom-left) across all breakpoints */
+.hero { min-height: 100vh !important; height: 100vh !important; padding: 0 !important; display: block !important; background: #000 !important; position: relative !important; overflow: hidden !important; }
+.hero-video { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-height: none !important; min-height: 0 !important; object-fit: cover !important; }
+.hero-content { position: absolute !important; left: 48px !important; right: auto !important; bottom: 72px !important; top: auto !important; max-width: 540px !important; padding: 0 !important; background: transparent !important; text-align: left !important; z-index: 3 !important; }
+.hero-content h1 { color: #fff !important; font-size: clamp(40px, 5.5vw, 72px) !important; line-height: 1.02 !important; letter-spacing: -0.03em !important; margin: 0 0 18px !important; }
+.hero-content .hero-sub, .hero-content .hero-p { color: rgba(255,255,255,0.85) !important; font-size: clamp(14px, 1.2vw, 17px) !important; line-height: 1.55 !important; margin: 0 0 24px !important; max-width: 480px !important; }
+.hero-content .hero-fine { color: rgba(255,255,255,0.65) !important; font-size: 12px !important; margin-top: 14px !important; }
+.hero-content .btn-lime { display: inline-flex !important; width: auto !important; padding: 14px 28px !important; font-size: 15px !important; }
+
+@media (max-width: 1024px) {
+  .hero { height: 90vh !important; min-height: 580px !important; }
+  .hero-content { left: 32px !important; right: 32px !important; bottom: 56px !important; max-width: 560px !important; }
+}
+
+@media (max-width: 768px) {
+  .hero { height: 88vh !important; min-height: 560px !important; }
+  .hero::after { content: '' !important; position: absolute !important; inset: 0 !important; z-index: 2 !important; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.78) 100%) !important; pointer-events: none !important; display: block !important; }
+  .hero-content { left: 22px !important; right: 22px !important; bottom: 36px !important; max-width: 100% !important; }
+  .hero-content h1 { font-size: clamp(34px, 9vw, 48px) !important; margin-bottom: 14px !important; }
+  .hero-content .hero-sub, .hero-content .hero-p { font-size: 15px !important; margin-bottom: 18px !important; }
+  .hero-content .btn-lime { padding: 13px 24px !important; font-size: 14px !important; }
+}
+
+@media (max-width: 420px) {
+  .hero { min-height: 90vh !important; }
+  .hero-content { bottom: 28px !important; }
+  .hero-content h1 { font-size: 34px !important; line-height: 1.05 !important; }
+}
+</style>
 
 <!-- HERO -->
 <section class="hero">
