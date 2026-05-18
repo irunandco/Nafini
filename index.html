@@ -335,6 +335,30 @@ nav { height: 64px !important; }
 </script>
 
 <style>
+/* Nav becomes solid white after scrolling past the hero */
+nav.scrolled { background: #fff !important; box-shadow: 0 2px 18px rgba(0,0,0,0.06) !important; }
+nav.scrolled .nav-logo img { filter: none !important; }
+nav.scrolled .nav-left > a, nav.scrolled .nav-left > .nav-dropdown > a { color: rgba(0,0,0,0.7) !important; }
+nav.scrolled .nav-left > a:hover, nav.scrolled .nav-left > .nav-dropdown > a:hover { color: #000 !important; }
+nav.scrolled .nav-right .nav-login { color: #0a0a0a !important; }
+nav.scrolled .nav-hamburger span { background: #0a0a0a !important; }
+</style>
+<script>
+(function(){
+  const navEl = document.querySelector('nav');
+  const heroEl = document.querySelector('.hero');
+  if (!navEl || !heroEl) return;
+  const onScrollNav = () => {
+    const threshold = heroEl.offsetHeight - navEl.offsetHeight;
+    navEl.classList.toggle('scrolled', window.scrollY > threshold);
+  };
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, { passive: true });
+  window.addEventListener('resize', onScrollNav);
+})();
+</script>
+
+<style>
 /* Responsive hero — overlay design (video full-bleed, text bottom-left) across all breakpoints */
 .hero { min-height: 100vh !important; height: 100vh !important; padding: 0 !important; display: block !important; background: #000 !important; position: relative !important; overflow: hidden !important; }
 .hero-video { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-height: none !important; min-height: 0 !important; object-fit: cover !important; object-position: 45% center !important; }
