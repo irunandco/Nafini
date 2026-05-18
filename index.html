@@ -337,7 +337,7 @@ nav { height: 64px !important; }
 <style>
 /* Responsive hero — overlay design (video full-bleed, text bottom-left) across all breakpoints */
 .hero { min-height: 100vh !important; height: 100vh !important; padding: 0 !important; display: block !important; background: #000 !important; position: relative !important; overflow: hidden !important; }
-.hero-video { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-height: none !important; min-height: 0 !important; object-fit: cover !important; }
+.hero-video { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; max-height: none !important; min-height: 0 !important; object-fit: cover !important; object-position: 35% center !important; }
 .hero::before { content: '' !important; position: absolute !important; inset: 0 !important; z-index: 2 !important; background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.75) 100%) !important; pointer-events: none !important; display: block !important; }
 .hero-content { position: absolute !important; left: 48px !important; right: auto !important; bottom: 72px !important; top: auto !important; max-width: 540px !important; padding: 0 !important; background: transparent !important; text-align: left !important; z-index: 3 !important; }
 .hero-content h1 { color: #fff !important; font-size: clamp(40px, 5.5vw, 72px) !important; line-height: 1.02 !important; letter-spacing: -0.03em !important; margin: 0 0 18px !important; }
@@ -623,6 +623,74 @@ nav { height: 64px !important; }
   </div>
 </section>
 
+
+<!-- COACH BOOKING -->
+<style>
+.coach-section { background: #0a0a0a; padding: 110px 48px; position: relative; overflow: hidden; }
+.coach-wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; }
+.coach-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--lime); margin-bottom: 22px; }
+.coach-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 12px rgba(200,230,58,0.6); }
+.coach-section h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(40px, 5.2vw, 68px); font-weight: 900; line-height: 1; letter-spacing: -0.035em; color: #fff; margin-bottom: 22px; }
+.coach-section h2 span { color: var(--lime); }
+.coach-section p.coach-lead { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 520px; }
+.coach-bullets { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 12px; }
+.coach-bullets li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,0.85); }
+.coach-check { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--lime); display: inline-flex; align-items: center; justify-content: center; color: #0a0a0a; font-weight: 900; font-size: 12px; }
+.coach-cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.coach-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--lime); color: #0a0a0a; padding: 16px 30px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.2s; }
+.coach-btn-primary:hover { background: var(--lime-dark); }
+.coach-btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: #fff; font-weight: 600; font-size: 14px; text-decoration: none; opacity: 0.85; }
+.coach-btn-ghost:hover { opacity: 1; }
+.coach-card { background: linear-gradient(160deg, #1a1a1a 0%, #0a0a0a 100%); border: 1px solid rgba(200,230,58,0.18); border-radius: 28px; padding: 40px 36px; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+.coach-card::before { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; border-radius: 30px; background: linear-gradient(135deg, rgba(200,230,58,0.35), transparent 50%); z-index: -1; }
+.coach-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.coach-card .coach-sub { color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 28px; }
+.coach-card .coach-rate { display: flex; align-items: baseline; gap: 8px; margin-bottom: 28px; }
+.coach-card .coach-rate strong { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 48px; font-weight: 900; color: var(--lime); letter-spacing: -0.03em; }
+.coach-card .coach-rate span { color: rgba(255,255,255,0.55); font-size: 14px; }
+.coach-includes { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.coach-includes li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.8); padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.coach-includes li:last-child { border-bottom: 0; padding-bottom: 0; }
+.coach-includes li::before { content: '→'; color: var(--lime); font-weight: 900; }
+
+@media (max-width: 900px) {
+  .coach-section { padding: 70px 22px; }
+  .coach-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .coach-card { padding: 32px 24px; }
+  .coach-card .coach-rate strong { font-size: 40px; }
+}
+</style>
+<section class="coach-section">
+  <div class="coach-wrap">
+    <div>
+      <div class="coach-eyebrow"><span class="coach-dot"></span>Business Coaching</div>
+      <h2>Need answers to a <span>business challenge?</span></h2>
+      <p class="coach-lead">Book a 1-on-1 session with a Nafini business coach. Get clear, practical guidance on cash flow, pricing, growth, funding — whatever's keeping you stuck.</p>
+      <ul class="coach-bullets">
+        <li><span class="coach-check">✓</span> Real coaches who've built and scaled Nigerian SMEs.</li>
+        <li><span class="coach-check">✓</span> 45-minute focused session, action plan included.</li>
+        <li><span class="coach-check">✓</span> Follow-up notes &amp; resources sent on WhatsApp.</li>
+        <li><span class="coach-check">✓</span> Confidential — your business stays your business.</li>
+      </ul>
+      <div class="coach-cta-row">
+        <a class="coach-btn-primary" href="https://wa.me/2348152029380?text=I%20want%20to%20book%20a%20business%20coaching%20session">Book a session →</a>
+        <a class="coach-btn-ghost" href="https://wa.me/2348152029380?text=I%20have%20a%20question%20about%20coaching">Ask a question first →</a>
+      </div>
+    </div>
+    <div class="coach-card">
+      <h3>1-on-1 Coaching</h3>
+      <p class="coach-sub">For founders &amp; small business owners.</p>
+      <div class="coach-rate"><strong>₦15,000</strong><span>/ session</span></div>
+      <ul class="coach-includes">
+        <li>45-minute private call</li>
+        <li>Pre-session intake form</li>
+        <li>Tailored action plan</li>
+        <li>WhatsApp follow-up for 7 days</li>
+        <li>Discount on Nafini paid tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- CTA -->
 <section class="cta-section">
