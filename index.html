@@ -154,10 +154,9 @@ nav:hover .nav-hamburger span { background: rgba(0,0,0,0.7); }
 .hero-video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; z-index: 0; pointer-events: none;
-  background: #ffffff;
-  opacity: 0;
+  background: #000;
+  opacity: 1;
   transition: opacity 0.25s ease;
-  /* Crush dark pixels to pure black and clip bright wrinkles to flat white */
   filter: contrast(1.7) brightness(1.02) saturate(1.05) blur(0.4px);
 }
 .hero-video.ready { opacity: 1; }
@@ -1718,8 +1717,8 @@ h2.sh, h2.sh-w, .fee-h, .cta-h {
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted playsinline preload="auto">
-    <source src="video/try hero video.mov" type="video/mp4">
+  <video class="hero-video" autoplay muted playsinline preload="auto" poster="images/hero-poster-opt.jpg">
+    <source src="video/hello hero .mov" type="video/mp4">
   </video>
   <div class="hero-spot"></div>
   <div class="hero-content">
