@@ -1701,6 +1701,7 @@ h2.sh, h2.sh-w, .fee-h, .cta-h {
   .hero-video { object-position: center top; }
   .hero-sub { font-size: 14px; }
   .hero { background: #000; }
+  .hero-video { object-position: right center; }
   .g-cards, .articles-grid { grid-template-columns: 1fr; }
   .growth-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1750,9 +1751,15 @@ h2.sh, h2.sh-w, .fee-h, .cta-h {
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted playsinline preload="auto" poster="images/hero-poster-new.jpg">
+  <video class="hero-video" autoplay muted playsinline preload="auto" id="heroVideo" poster="images/hero-poster-new.jpg">
     <source src="video/new hero video.mov" type="video/mp4">
   </video>
+  <script>
+    (function(){
+      var v = document.getElementById('heroVideo');
+      if (v && window.innerWidth <= 900) v.setAttribute('poster', 'images/poster image.jpg');
+    })();
+  </script>
   <div class="hero-spot"></div>
   <div class="hero-content">
     <h1>Your Pocket<br>Accountant.</h1>
