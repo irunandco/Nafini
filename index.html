@@ -92,7 +92,7 @@ nav:hover .nav-dropdown-menu a:hover { background: rgba(0,0,0,0.04); color: #000
 nav:hover .nav-logo img { filter: brightness(0); }
 .nav-logo.bright-hide { opacity: 0; pointer-events: none; }
 nav:hover .nav-logo { color: #000; }
-nav:hover .nav-logo img, nav.scrolled .nav-logo img { filter: brightness(0); }
+nav.scrolled .nav-logo img { filter: brightness(0); }
 .logo-mark { display: inline-flex; align-items: center; color: var(--lime); font-size: 14px; letter-spacing: -2px; }
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .nav-login { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.85); text-decoration: none; padding: 6px 10px; transition: color 0.2s; }
@@ -115,6 +115,28 @@ nav:hover .nav-cta:hover { background: var(--lime); color: #000; }
 .nav-hamburger span { display: block; width: 100%; height: 1.5px; background: rgba(255,255,255,0.85); border-radius: 2px; transition: background 0.2s; }
 nav:hover .nav-hamburger { background: rgba(0,0,0,0.08); }
 nav:hover .nav-hamburger span { background: rgba(0,0,0,0.7); }
+
+/* NAFINI TESTIMONIALS */
+.nafini-testi { background: #fafaf7; padding: 96px 0 80px; overflow: hidden; }
+.nafini-testi-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; padding: 0 max(2rem, calc((100% - 1100px)/2)) 56px; }
+.nafini-testi-tag { display: inline-flex; align-items: center; gap: 7px; background: #d8eea0; border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; font-size: 12px; font-weight: 700; color: #3a5c00; letter-spacing: 0.05em; text-transform: uppercase; }
+.nafini-testi-h { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -0.03em; color: #0a0a0a; margin: 0; line-height: 1.1; }
+.nafini-testi-sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: rgba(0,0,0,0.55); line-height: 1.7; margin: 0; max-width: 420px; align-self: end; }
+.nafini-testi-track-wrap { padding-left: max(2rem, calc((100% - 1100px)/2)); overflow: hidden; }
+.nafini-testi-track { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.nafini-testi-track::-webkit-scrollbar { display: none; }
+.nafini-testi-card { flex: 0 0 340px; background: #fff; border-radius: 24px; padding: 36px 32px 32px; display: flex; flex-direction: column; justify-content: space-between; min-height: 360px; scroll-snap-align: start; cursor: grab; border: 1px solid #efefea; }
+.nafini-testi-card:active { cursor: grabbing; }
+.nafini-testi-quote { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 500; color: #0a0a0a; line-height: 1.65; margin: 0; flex: 1; }
+.nafini-testi-author { display: flex; align-items: center; gap: 14px; border-top: 1px solid #efefea; padding-top: 20px; margin-top: 28px; }
+.nafini-testi-av { width: 56px; height: 56px; border-radius: 50%; background: #c8e63a; flex-shrink: 0; overflow: hidden; }
+.nafini-testi-av img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nafini-testi-name { font-size: 16px; font-weight: 700; color: #0a0a0a; }
+.nafini-testi-role { font-size: 13px; color: rgba(0,0,0,0.45); margin-top: 3px; }
+@media (max-width: 900px) {
+  .nafini-testi-head { grid-template-columns: 1fr; gap: 16px; }
+  .nafini-testi-card { flex: 0 0 280px; }
+}
 
 /* MOBILE MENU */
 .mob-menu {
@@ -1674,8 +1696,11 @@ h2.sh, h2.sh-w, .fee-h, .cta-h {
   .faq-q, .faq-a { word-break: break-word; }
   .faq-left-p { max-width: 100%; }
   .hero-card, .testi-img { display: none; }
-  .hero h1 { font-size: 40px; }
-  .hero-content { left: 24px; right: 24px; }
+  .hero h1 { font-size: 36px; }
+  .hero-content { left: 24px; right: 24px; bottom: 48px; }
+  .hero-video { object-position: center top; }
+  .hero-sub { font-size: 14px; }
+  .hero { background: #000; }
   .g-cards, .articles-grid { grid-template-columns: 1fr; }
   .growth-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -1779,7 +1804,7 @@ h2.sh, h2.sh-w, .fee-h, .cta-h {
       <span style="font-size:12px;font-weight:700;color:#3a5c00;letter-spacing:0.05em;text-transform:uppercase">Features</span>
     </div>
     <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,5.5vw,68px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;color:#0a0a0a;margin:0 0 1.5rem;max-width:800px">Your accountant, your loan officer,<br>your bookkeeper — one WhatsApp chat.</h2>
-    <p style="font-size:clamp(15px,1.3vw,17px);color:#6b6b6b;line-height:1.8;max-width:480px;margin:0">Nafini tracks every sale, builds your credit profile automatically, and unlocks business loans — no apps, no paperwork, no accountant needed.</p>
+    <p style="font-size:clamp(15px,1.3vw,17px);color:#6b6b6b;line-height:1.8;max-width:480px;margin:0">Nafini tracks every sale, sends professional invoices to your customers, builds your credit profile automatically, and unlocks business loans — no apps, no paperwork, no accountant needed.</p>
   </div>
 </div>
 
@@ -1973,10 +1998,39 @@ h2.sh, h2.sh-w, .fee-h, .cta-h {
 
 </div>
 
-
-
-
-
+<!-- TESTIMONIALS -->
+<section class="nafini-testi">
+  <div class="nafini-testi-head">
+    <div>
+      <div class="nafini-testi-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M10 11H6a1 1 0 01-1-1V6a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1zm8 0h-4a1 1 0 01-1-1V6a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1z" fill="#3a5c00"/></svg>
+        Testimonials
+      </div>
+      <h2 class="nafini-testi-h">Real results from<br>real merchants.</h2>
+    </div>
+    <p class="nafini-testi-sub">From tracking daily sales to getting their first business loan — our merchants are seeing real change. Here's what they're saying.</p>
+  </div>
+  <div class="nafini-testi-track-wrap">
+    <div class="nafini-testi-track">
+      <div class="nafini-testi-card">
+        <p class="nafini-testi-quote">"Before Nafini I had no idea if I was making profit. Now I get a report every month and I even got a loan to restock before Christmas."</p>
+        <div class="nafini-testi-author"><div class="nafini-testi-av"><img src="images/testi-adaeze.jpg" alt="Amaka O."></div><div><div class="nafini-testi-name">Amaka O.</div><div class="nafini-testi-role">Fashion vendor, Lagos</div></div></div>
+      </div>
+      <div class="nafini-testi-card nafini-testi-card--dark">
+        <p class="nafini-testi-quote">"I sent my sales on WhatsApp every day. Three months later Nafini helped me get a ₦200,000 loan. No stress, no paperwork."</p>
+        <div class="nafini-testi-author"><div class="nafini-testi-av"><img src="images/testi-emeka.jpg" alt="Kunle B."></div><div><div class="nafini-testi-name">Kunle B.</div><div class="nafini-testi-role">Provisions store, Ibadan</div></div></div>
+      </div>
+      <div class="nafini-testi-card">
+        <p class="nafini-testi-quote">"My husband said I was wasting time on WhatsApp. Then Nafini showed us we grew 40% in two months. Now he helps me log every sale."</p>
+        <div class="nafini-testi-author"><div class="nafini-testi-av"><img src="images/testi-chinwe.jpg" alt="Fatima M."></div><div><div class="nafini-testi-name">Fatima M.</div><div class="nafini-testi-role">Food business, Abuja</div></div></div>
+      </div>
+      <div class="nafini-testi-card">
+        <p class="nafini-testi-quote">"I never knew how much money was leaving my business until Nafini showed me. In one month I cut my losses by half."</p>
+        <div class="nafini-testi-author"><div class="nafini-testi-av"><img src="images/testi-tunde.jpg" alt="Taiwo K."></div><div><div class="nafini-testi-name">Taiwo K.</div><div class="nafini-testi-role">Phone accessories, Kano</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="rjf">
@@ -2579,6 +2633,24 @@ document.querySelectorAll('.t-dot').forEach(d => {
       b.style.setProperty('--mgx', 0);
       b.style.setProperty('--mgy', 0);
     });
+  });
+})();
+
+// Drag-to-scroll testimonials
+(function(){
+  const track = document.querySelector('.nafini-testi-track');
+  if (!track) return;
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => {
+    isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => isDown = false);
+  track.addEventListener('mouseup', () => isDown = false);
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
   });
 })();
 </script>
